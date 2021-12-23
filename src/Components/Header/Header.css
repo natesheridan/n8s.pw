@@ -128,7 +128,6 @@
       flex-direction: column;
       width: 100%;
       backdrop-filter: blur(5px); 
-      background-color: #3835db;
       transition: all 0.8s ease-in;
       overflow-y: scroll;
       top: 80px;

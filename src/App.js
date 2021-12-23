@@ -4,10 +4,17 @@ import About from './Pages/About/About.js'
 import Contact from './Pages/Contact/Contact.js'
 import Home from './Pages/Home/Home.js'
 import Projects from './Pages/Projects/Projects.js'
-
+import Header from './Components/Header/Header.js'
 function App() {
-  return (
+
+  const isHomeCheck = () => {
+
+  }
+  
+  return(
+    <>
     <main >
+        <Route exact path = {['/projects', '/about', '/contact']} render = {() => <Header />} />
       <div className="content-container">
         <Route exact path = {['/home', '/']} render = {() => <Home />} />
         <Route exact path = '/projects' render = {() => <Projects />} />
@@ -15,6 +22,7 @@ function App() {
         <Route exact path = '/contact' render = {() => <Contact />} />
       </div>
     </main>
+    </>
   );
 }
 

@@ -4,9 +4,9 @@ import Header from './../../Components/Header/Header'
 const About = () => {
     return (
     <>
-    <Header/>
-        <section className="about">
-            about
+        <h2>about</h2>
+        <section className="content about">
+            <article className = "box"></article>
         </section>
     </>
     )

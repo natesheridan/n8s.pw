@@ -5,6 +5,11 @@ import Bounce from 'react-reveal/Bounce';
 
 
 const Header = () => {
+
+    const navClick = () => {
+        document.querySelector('#nav-check').checked = false;
+    }
+
     return (
         <div className="header">
             <div className="nav">
@@ -17,16 +22,16 @@ const Header = () => {
                     </label>
                 </div>
                 <div className="nav-header">
-                <Bounce left>
+                <Bounce top>
                     <img src='./logo.png'></img><h1 className="nav-logo">Nate Sheridan</h1>
                 </Bounce>
                 </div>
-                    <Bounce top delay={100}>
+                    <Bounce right delay={300}>
                 <div className="nav-links">
-                    <NavLink to="/home">home</NavLink>
-                    <NavLink to="/about">about</NavLink>
-                    <NavLink to="/projects">projects</NavLink>
-                    <NavLink to="/contact">contacts</NavLink>
+                    <NavLink onClick={() => navClick()} to="/home">home</NavLink>
+                    <NavLink onClick={() => navClick()} to="/about">about</NavLink>
+                    <NavLink onClick={() => navClick()} to="/projects">projects</NavLink>
+                    <NavLink onClick={() => navClick()} to="/contact">contact</NavLink>
                 </div>
                     </Bounce>
             </div>

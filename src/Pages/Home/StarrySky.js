@@ -2,6 +2,7 @@ import React from 'react'
 import anime from 'animejs/lib/anime.es.js';
 
 // Twinkling Night Sky by Sharna
+//CREDIT ^
 
 class StarrySky extends React.Component {
     state = {

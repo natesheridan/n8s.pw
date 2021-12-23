@@ -5,9 +5,8 @@ import Header from './../../Components/Header/Header'
 const Contact = () => {
     return (
     <>
-    <Header/>
-        <section className="contact">
-            contact
+        <h2>contact</h2>
+        <section className="content contact">
         </section>
     </>
     )
