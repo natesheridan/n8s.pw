@@ -65,7 +65,7 @@
   }
   
   .nav > .nav-links > a:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.5);
     transform: scale(1.2)
   }
   
@@ -127,13 +127,15 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      backdrop-filter: blur(5px); 
+      border-top: 1px solid #8283eb;
+      backdrop-filter: blur(20px); 
       transition: all 0.8s ease-in;
       overflow-y: scroll;
       top: 80px;
       left: 0px;
     }
     .nav > .nav-links > a {
+      background-color: rgba(255, 255, 255, 0.5);
       display: block;
       margin-top: 20px;
       margin-right: 0px;
