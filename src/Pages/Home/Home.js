@@ -10,14 +10,13 @@ import Button from './../../Components/Button/Button'
 const Home = () => {
     return (
     <>
-        <Fade duration={1600}>
 
         <section className="home">
             <div className = "sky-container">
                     <StarrySky/>
             </div>
             <div className="info-box">
-                <img src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'></img>
+                <img src='http://github.com/natesheridan.png'></img>
                 <h1>Nate Sheridan</h1>
                 <h4>software development, tech, cars</h4>
                 <div className="info-btns">
@@ -28,7 +27,6 @@ const Home = () => {
 
             </div>
         </section>
-        </Fade>
     </>
     )
 }

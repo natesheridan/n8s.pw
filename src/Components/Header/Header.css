@@ -17,9 +17,10 @@
   }
   
   .nav {
+    padding-left: 10px;
     height: 80px;
     width: 100%;
-    max-width: 1150px;
+    max-width: 1300px;
     position: relative;
   }
   
@@ -53,16 +54,47 @@
     font-size: 18px;
   }
   
-  .nav > .nav-links > a {
-    border: 2px solid rgb(7, 7, 7);
-    border-radius: 20px;
-    display: inline-block;
-    margin-right: 30px;
-    padding: 10px 30px 10px 30px;
-    text-decoration: none;
-    color: #000000;
-    transition: scale .7s;
+
+  
+  .active{
+    box-shadow: 1px 1px 2px 0px #000000 inset, -1px -1px 2px 1px rgba(0, 0, 0, 0.5) inset !important;
+    background-image: radial-gradient(1% 50% at 100% 0, #5adaff 0, #5468ff 100%) !important;
   }
+  .active:hover{
+    transform: scale(.99) !important;
+    cursor: default !important;
+  }
+  .nav > .nav-links > a {
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding: 0 26px;
+    margin: 0 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+  }
+
   
   .nav > .nav-links > a:hover {
     background-color: rgba(255, 255, 255, 0.5);
@@ -136,11 +168,13 @@
     }
     .nav > .nav-links > a {
       background-color: rgba(255, 255, 255, 0.5);
+      font-size: 38px;
       display: block;
       margin-top: 20px;
+      margin-left: 0px;
       margin-right: 0px;
       width: 90%;
-      text-align: center;
+      align-items: center;
     }
     .nav > #nav-check:not(:checked) ~ .nav-links {
       height: 0px;

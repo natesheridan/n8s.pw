@@ -37,18 +37,18 @@ class StarrySky extends React.Component {
         opacity: [
           {
             duration: 1000,
-            value: "5"
+            value: "10"
           }
         ],
         width: [
           {
-            value: "150px"
+            value: "50px"
           },
           {
             value: "0px"
           }
         ],
-        translateX: 350
+        translateX: 1000
       });
     };
     randomRadius = () => {

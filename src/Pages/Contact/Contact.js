@@ -1,12 +1,24 @@
 import React from 'react'
-import Header from './../../Components/Header/Header'
+import Fade from 'react-reveal/Fade'
+import IframeResizer from 'iframe-resizer-react'
 
 
 const Contact = () => {
     return (
     <>
-        <h2>contact</h2>
         <section className="content contact">
+            <Fade left delay={300}>
+                <div>
+                <IframeResizer 
+                    id='projectsFrame' 
+                    heightCalculationMethod="lowestElement"
+                    autoResize = 'true'
+                    checkOrigin="false"
+                    src="https://projects.n8s.pw/contact-form"
+                    style={{ width: '1px', minWidth: '100%'}}
+                    />
+                </div>
+            </Fade>
         </section>
     </>
     )

@@ -9,7 +9,7 @@
     min-width: 300px;
     max-width: 500px;
     width: 40vw;
-    height: 500px;
+    height: 400px;
     background: #fff;
     margin: -80vh auto;
     position:relative;
@@ -22,10 +22,13 @@
     font-size:2.2em;
 }
 .info-box img{
-    margin: 20px auto;
-    height: 100px;
-    width: 100px;
-    border-radius: 50px;
+    margin: 0 auto;
+    margin-top: -125px;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    box-shadow: 
+        2px 3px 5px rgba(0, 0, 0, 0.7);
 }
 .info-btns{
     display: flex;

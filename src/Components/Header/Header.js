@@ -22,11 +22,11 @@ const Header = () => {
                     </label>
                 </div>
                 <div className="nav-header">
-                <Bounce top>
+                <Bounce top delay={500}>
                     <img src='./logo.png'></img><h1 className="nav-logo">Nate Sheridan</h1>
                 </Bounce>
                 </div>
-                    <Bounce right delay={300}>
+                    <Bounce top delay={500}>
                 <div className="nav-links">
                     <NavLink onClick={() => navClick()} to="/home">home</NavLink>
                     <NavLink onClick={() => navClick()} to="/about">about</NavLink>

@@ -13,8 +13,8 @@ function App() {
   
   return(
     <>
-    <main >
         <Route exact path = {['/projects', '/about', '/contact']} render = {() => <Header />} />
+    <main >
       <div className="content-container">
         <Route exact path = {['/home', '/']} render = {() => <Home />} />
         <Route exact path = '/projects' render = {() => <Projects />} />

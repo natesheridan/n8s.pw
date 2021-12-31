@@ -1,0 +1,78 @@
+.about{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.box{
+    position: relative;
+    padding: 5px;
+    margin: 30px 30px;
+    width: 85%;
+    max-width: 750px;
+    min-width: 350px;
+    border-radius: 5px;
+    overflow: hidden;
+
+
+}
+.box h1{
+    font-size: 40px;
+    font-family: 'Poiret One', cursive;
+    
+
+}
+.box h2{
+    font-size: 16px;
+    margin-top: -20px;
+}
+.box img{
+    width: auto;
+    height: 100%;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 90vw;
+    max-height: 400px;
+    box-shadow:
+        rgba(0, 0, 0, 0.25) 0px 10px 10px,
+        rgba(0, 0, 0, 0.12) 0px -2px 5px,
+        rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 2px 1px,
+        rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+.box a{ 
+    text-decoration: none;
+}
+.box p{
+
+}
+
+.bf-right{
+    float:right;
+}
+.bf-left{
+    float:left;
+}
+.bc-blue{
+    background-color : rgb(213, 230, 255);
+    box-shadow:
+        -5px -3px 5px rgba(0, 0, 0, 0.7),
+        -15px -15px 0px rgba(0, 62, 138, 0.7),
+        0 19px 38px rgba(0,0,0,0.30),
+        0 15px 12px rgba(0,0,0,0.22);
+}
+.bc-white{
+    background-color : rgb(247, 250, 255);
+    box-shadow: 
+        5px -3px 5px rgba(0, 0, 0, 0.7),
+        15px -15px 0px rgba(0, 61, 135, 0.7),
+        0 19px 38px rgba(0,0,0,0.30),
+        0 15px 12px rgba(0,0,0,0.22);
+}
+.box #text{
+    background-color : red;
+}
+.image-clip-1{
+    margin-top: -20px;
+    clip-path: polygon(36% 15%, 45% 12%, 60% 15%, 65% 26%, 68% 38%, 70% 50%, 79% 56%, 86% 69%, 89% 82%, 90% 91%, 90% 100%, 5% 100%, 7% 88%, 9% 72%, 14% 61%, 22% 55%, 28% 48%, 29% 40%, 30% 31%, 31% 22%);
+}
