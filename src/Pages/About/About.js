@@ -22,6 +22,9 @@ const About = () => {
                         subheader={c.subheader}
                         content={c.content}
                         link={c.link}
+                        id={c.id}
+                        typeDelay = {c.typeDelay}
+                        iframe = {c.iframe}
                         side="right"/>
                 </Fade>
             )
@@ -36,6 +39,10 @@ const About = () => {
                     subheader={c.subheader}
                     content={c.content}
                     link={c.link}
+                    id={c.id}
+                    typeDelay = {c.typeDelay}
+                    iframe = {c.iframe}
+
                     side="left"/>
             </Fade>
         )

@@ -5,22 +5,28 @@ import Contact from './Pages/Contact/Contact.js'
 import Home from './Pages/Home/Home.js'
 import Projects from './Pages/Projects/Projects.js'
 import Header from './Components/Header/Header.js'
+import Footer from './Components/Footer/Footer.js'
+
+
 function App() {
 
   const isHomeCheck = () => {
 
   }
+
+
   
   return(
     <>
+    <main onScroll={console.log("Scroll")} >
         <Route exact path = {['/projects', '/about', '/contact']} render = {() => <Header />} />
-    <main >
       <div className="content-container">
         <Route exact path = {['/home', '/']} render = {() => <Home />} />
         <Route exact path = '/projects' render = {() => <Projects />} />
         <Route exact path = '/about' render = {() => <About />} />
         <Route exact path = '/contact' render = {() => <Contact />} />
       </div>
+        <Route exact path = {['/projects', '/about', '/contact']} render = {() => <Footer />} />
     </main>
     </>
   );

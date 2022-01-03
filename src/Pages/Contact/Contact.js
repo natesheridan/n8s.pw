@@ -10,7 +10,7 @@ const Contact = () => {
             <Fade left delay={300}>
                 <div>
                 <IframeResizer 
-                    id='projectsFrame' 
+                    id='contactForm' 
                     heightCalculationMethod="lowestElement"
                     autoResize = 'true'
                     checkOrigin="false"

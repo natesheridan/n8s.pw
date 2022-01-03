@@ -11,7 +11,7 @@ const Header = () => {
     }
 
     return (
-        <div className="header">
+        <header className="header">
             <div className="nav">
                 <input type="checkbox" id="nav-check"></input>
                 <div className="nav-btn">
@@ -35,7 +35,7 @@ const Header = () => {
                 </div>
                     </Bounce>
             </div>
-        </div>
+        </header>
     )
 }
 
