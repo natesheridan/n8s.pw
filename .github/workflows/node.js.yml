@@ -26,5 +26,5 @@ jobs:
       with:
         server: ftp.n8s.pw
         username: deploy@n8s.pw
-        password: testpassword!234
+        password: ${{ secrets.FTP_PASSWORD }}
         local-dir: build/
