@@ -41,6 +41,7 @@ const AboutData = [
         "content" : "I enrolled at Turing: School of Software and Design and dedicated myself to their rigorious bootcamp styled education with a focus on frontend software engineering. Frontend development is something that I already had found interest for years before but hadn't applied to make more than a hobby ever before. ",
     },
         
+    
     {
         "id" : "about6",
         "content" : "After now having nearly completed Turing's educational program, I only want to learn more. The only thing I am looking for now is a great team to work alongside, I am eager and ready to get working on new projects with new people!"
