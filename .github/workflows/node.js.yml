@@ -24,7 +24,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
+        server: ftp.n8s.pw
+        username: deploy@n8s.pw
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: build/
