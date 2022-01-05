@@ -5,20 +5,29 @@ import './Projects.css'
 
 
 const Projects = () => {
+    const [url, setUrl] = useState("https://projects.n8s.pw/")
 
     useEffect(() => {
         // fetchArticles()
     }, [])
 
+    const checkFrameUrl = () => {
+        const currentUrl = document.getElementById("projectsFrame").contentWindow.location.href
+        console.log(currentUrl)
+        if(url === currentUrl){
+            setUrl(currentUrl)
+
+        }
+    }
     return (
     <>
         <section className="content projects">
             <Fade left duration={1100}>
                 <IframeResizer 
+                    onClick={()=>{checkFrameUrl()}}
                     id='projectsFrame' 
                     heightCalculationMethod="lowestElement"
                     autoResize = 'true'
-                    inPageLinks='true'
                     checkOrigin="false"
                     src="https://projects.n8s.pw/"
                     style={{ width: '1px', minWidth: '100%'}}

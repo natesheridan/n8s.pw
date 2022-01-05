@@ -1,0 +1,26 @@
+.scroll-arrow {
+    position: fixed; 
+    right: 10px;
+    bottom: 10px;
+    height: 55px;
+    width: 55px;
+    z-index: 1000;
+    cursor: pointer;
+    animation: fadeIn 0.3s;
+    transition: opacity 0.4s;
+    opacity: 0.5;
+    color: black;
+  }
+  
+  .scroll-arrow:hover{
+    opacity: 1;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }

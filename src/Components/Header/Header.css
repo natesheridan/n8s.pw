@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 11%, rgba(255,255,255,1) 41%, rgb(214, 221, 255) 80%, #8894ff 100%);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0) 1%, rgba(255, 255, 255, 0.982) 61%, rgb(214, 221, 255) 80%, #8894ff 100%);
 }
 * {
     box-sizing: border-box;

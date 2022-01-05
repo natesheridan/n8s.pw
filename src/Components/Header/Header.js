@@ -23,7 +23,7 @@ const Header = () => {
                 </div>
                 <div className="nav-header">
                 <Bounce top delay={500}>
-                    <img src='./logo.png'></img><h1 className="nav-logo">Nate Sheridan</h1>
+                    <img alt="logo" src='./logo.png'></img><h1 className="nav-logo">Nate Sheridan</h1>
                 </Bounce>
                 </div>
                     <Bounce top delay={500}>

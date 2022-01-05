@@ -4,7 +4,7 @@ const AboutData = [
         "id" : "about1",
         "typeDelay" : 50,
         "header" : "👋 Hi! I am Nate Sheridan",
-        "subheader" : "a car nerd, hardware hoarder, and software developer",
+        "subheader" : "a software developer, hardware hoarder, and car nerd",
         "content":"",
         "link" : {
             "url":"./contact/",
@@ -64,9 +64,9 @@ const AboutData = [
 
 
 ]
-const deployLinks = [
+// const deployLinks = [
 
-]
+// ]
 export default AboutData
 
 

@@ -2,8 +2,9 @@ import React from 'react'
 import './Home.css'
 import StarrySky from './StarrySky.js'
 import Fade from 'react-reveal/Fade';
-import Header from './../../Components/Header/Header'
 import Button from './../../Components/Button/Button'
+import SocialButton from './../../Components/SocialButton/SocialButton'
+
 
 
 
@@ -16,18 +17,36 @@ const Home = () => {
                     <StarrySky/>
             </div>
             <div className="info-box">
-                <img src='http://github.com/natesheridan.png'></img>
-                <div className="info-btns">
-                    <Button label={"about"} to='/about' />
-                    <Button label={"projects"} to='/projects' />
-                    <Button label={"contact"} to='/contact' />
-                </div>
+                <img alt="github profile" src='http://github.com/natesheridan.png'></img>
                 <h1>Nate Sheridan</h1>
                 <h4>software development, tech, cars</h4>
                 <div className="info-btns">
-                    <Button label={"resume"} color="dark" to='/about#resume' />
-                    <Button label={"linkedin"} color="dark" href='https://linkedin.com/n8s' />
-                    <Button label={"github"} color="dark" href='https://github.com/natesheridan' />
+                    <Fade bottom delay={100}>
+                    <Button label={"about"} to='/about' />
+                    </Fade>
+                    <Fade bottom delay={200}>
+                    <Button label={"projects"} to='/projects' />
+                    </Fade>
+                    <Fade bottom delay={300}>
+                    <Button label={"contact"} to='/contact' />
+                    </Fade>
+                </div>
+                <div className="info-btns">
+                    <Fade top delay={600}>
+                    <SocialButton label={"Github"} to={"https://github.com/natesheridan"} size={50} faIcon={"FaGithub"}/>
+                    </Fade>
+                    
+                    <Fade top delay={700}>
+                    <SocialButton label={"LinkedIn"} to={"https://linkedin.com/in/n8s"} size={50} faIcon={"FaLinkedinIn"}/>
+                    </Fade>
+                    
+                    <Fade top delay={800}>
+                    <SocialButton label={"Twitter"} to={"https://twitter.com/n8wtf"} size={50} faIcon={"FaTwitter"}/>
+                    </Fade>
+
+                    <Fade top delay={900}>
+                    <SocialButton label={"Resume"} to={"https://n8s.pw/assets/ResumeNoPhone.pdf"} size={50} faIcon={"FaScroll"}/>
+                    </Fade>
                 </div>
 
             </div>

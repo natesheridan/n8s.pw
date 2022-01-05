@@ -34,7 +34,7 @@ const DynamicBox = ({type, color, image, header, subheader, content, link, side,
         <div key={id} id={id} className = {`box bc-${color} bf-${side}`}>
                 {image && 
                     <Fade delay={1100}>
-                        <img className = {image.imgStyle} src={image.url}></img>
+                        <img alt={header} className = {image.imgStyle} src={image.url}></img>
                     </Fade>
                 }
                 {header &&
@@ -68,7 +68,7 @@ const DynamicBox = ({type, color, image, header, subheader, content, link, side,
                     />
                 }
                 {link && 
-                    <a target="_blank" href={link.url}>{link.title}</a>
+                    <a rel="noreferrer" target="_blank" href={link.url}>{link.title}</a>
                 }
         </div>
     )
