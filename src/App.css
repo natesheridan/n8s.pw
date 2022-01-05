@@ -1,5 +1,13 @@
 
 main {
+  background-image: url("https://n8s.pw/pkg-assets/paper.jpg");
+  
+  /* background-repeat: no-repeat; */
+  background-size: auto;
+
+  /* background-size: 50px 50px; */
+  background-attachment: fixed;
+  
   text-align: center;
   font-family: arial, ubuntu, roboto, noto, -apple-system, helvetica, sans-serif;
 }

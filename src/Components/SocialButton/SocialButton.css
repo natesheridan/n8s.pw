@@ -1,0 +1,28 @@
+.social-button{
+    padding-top: 20px;
+
+}
+.social-btn{
+    background-color: transparent;
+    border: none;
+    transition: scale 0.5s ease;
+    cursor: pointer;
+}
+.social-svg{
+    color:#bbbbbb;
+}
+
+.social-label {
+    margin: 3px;
+    opacity: 0%;
+    transition: opacity .5s ease;
+    font-family: "JetBrains Mono",monospace;
+}
+.social-btn:hover + .social-label{
+    color:#000;
+    opacity: 1;
+}
+.social-btn:hover + .social-svg{
+    color:#000;
+    border: 1px solid red;
+}

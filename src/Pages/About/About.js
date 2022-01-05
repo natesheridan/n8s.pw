@@ -2,19 +2,17 @@ import React from 'react'
 import DynamicBox from './../../Components/DynamicBox/DynamicBox'
 import Fade from 'react-reveal/Fade'
 import AboutData from './AboutData'
-import deployLinks from './AboutData'
 
 const About = () => {
     const isOdd = (n) => {
-        if(n%2==0){ return false}
+        if(n%2===0){ return false}
         return true
     }
     const aboutDataMapped = AboutData.map((cardData, i) => {
         const c = cardData
-        console.log(c)
         if(isOdd(i)){
             return(
-                <Fade right>
+                <Fade right key={i}>
                     <DynamicBox
                         color='white'
                         image={c.image}
@@ -31,7 +29,7 @@ const About = () => {
         }
 
         return(
-            <Fade left>
+            <Fade left key={i}>
                 <DynamicBox
                     color='blue'
                     image={c.image}

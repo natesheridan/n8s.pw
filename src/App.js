@@ -6,18 +6,17 @@ import Home from './Pages/Home/Home.js'
 import Projects from './Pages/Projects/Projects.js'
 import Header from './Components/Header/Header.js'
 import Footer from './Components/Footer/Footer.js'
+import ScrollArrow from './Components/ScrollArrow/ScrollArrow.js'
 
 
 function App() {
 
-  const isHomeCheck = () => {
-
-  }
 
 
   
   return(
     <>
+    <ScrollArrow />
     <main onScroll={console.log("Scroll")} >
         <Route exact path = {['/projects', '/about', '/contact']} render = {() => <Header />} />
       <div className="content-container">
