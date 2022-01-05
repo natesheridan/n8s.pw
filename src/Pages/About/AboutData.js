@@ -52,11 +52,11 @@ const AboutData = [
         "subheader" : "check my credentials",
         "typeDelay" : 100,
         "iframe" : {
-            "url":"https://n8s.pw/assets/ResumeNoPhone.pdf",
-            "height" : 1000,
+            "url":"https://www.n8s.pw/assets/ResumeNoPhone.pdf",
+            "height" : 850,
         },
         "link" : {
-            "url":"https://n8s.pw/assets/ResumeNoPhone.pdf",
+            "url":"https://www.n8s.pw/assets/ResumeNoPhone.pdf",
             "title" : "open in new tab"
         },
     },
