@@ -7,8 +7,11 @@ main {
 
   /* background-size: 50px 50px; */
   background-attachment: fixed;
-  
+  min-height: 100vh;
   text-align: center;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
   font-family: arial, ubuntu, roboto, noto, -apple-system, helvetica, sans-serif;
 }
 

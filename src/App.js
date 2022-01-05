@@ -25,7 +25,7 @@ function App() {
         <Route exact path = '/about' render = {() => <About />} />
         <Route exact path = '/contact' render = {() => <Contact />} />
       </div>
-        <Route exact path = {['/projects', '/about', '/contact']} render = {() => <Footer />} />
+    <Route exact path = {['/projects', '/about', '/contact']} render = {() => <Footer />} />
     </main>
     </>
   );
