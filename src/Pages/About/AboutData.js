@@ -44,22 +44,43 @@ const AboutData = [
     
     {
         "id" : "about6",
-        "content" : "After now having nearly completed Turing's educational program, I only want to learn more. The only thing I am looking for now is a great team to work alongside, I am eager and ready to get working on new projects with new people!"
+        "content" : "Through Turing, I really turned what I thought was a random hobby into an interest and skills that I could really build a career out of. Understanding the power of the internet and the ability to create and develop things that can be used by anyone, anywhere, is something that I immediately found very exciting and inpiring.",
+    },
+
+    {
+        "id" : "about7",
+        "content" : "I applied to several jobs and found a group of great people and a company that I really enjoy working with. I am currently working as a Fullstack Software Engineer at a company called ServiceLogix. I am very excited to be working with a company that is so passionate about what they do and the people they work with.",
     },
     {
-        "id" : "resume",
-        "header" : "resume",
-        "subheader" : "check my credentials",
-        "typeDelay" : 100,
-        "iframe" : {
-            "url":"https://n8s.pw/assets/ResumeNoPhone.pdf",
-            "height" : 1000,
-        },
-        "link" : {
-            "url":"https://n8s.pw/assets/ResumeNoPhone.pdf",
-            "title" : "open in new tab"
-        },
+        "id" : "about7",
+        "content" : "Although I am not actively looking for any new full time posistions at this time, I am always open to new opportunities and would love to hear from you. Feel free to reach out to me via the contact page or through my social media links on the home page.",
     },
+    {
+        "id" : "about8",
+        "image": {
+            "imgStyle" : "wave-image",
+            "url" : "https://emojipedia-us.s3.amazonaws.com/source/noto-emoji-animations/344/waving-hand_1f44b.gif" 
+        },
+        "content" : "Thanks for stopping by and I hope you enjoy my portfolio!",
+    },
+    {
+        "id" : "about9",
+        "content" : "(P.S. AI wrote some of these cards, let me know if you can figure out which ones!)",
+    },
+    // {
+    //     "id" : "resume",
+    //     "header" : "resume",
+    //     "subheader" : "check my credentials",
+    //     "typeDelay" : 100,
+    //     "iframe" : {
+    //         "url":"https://n8s.pw/assets/ResumeNoPhone.pdf",
+    //         "height" : 1000,
+    //     },
+    //     "link" : {
+    //         "url":"https://n8s.pw/assets/ResumeNoPhone.pdf",
+    //         "title" : "open in new tab"
+    //     },
+    // },
 
 
 
