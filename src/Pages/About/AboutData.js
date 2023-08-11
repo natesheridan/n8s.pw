@@ -44,7 +44,7 @@ const AboutData = [
     
     {
         "id" : "about6",
-        "content" : "Through Turing, I really turned what I thought was a random hobby into an interest and skills that I could really build a career out of. Understanding the power of the internet and the ability to create and develop things that can be used by anyone, anywhere, is something that I immediately found very exciting and inpiring.",
+        "content" : "Through Turing, I really turned what I thought was a random hobby into an interest and skills that I could really build a career out of. Understanding the power of the internet and the ability to create and develop things that can be used by anyone, anywhere, is something that I immediately found very exciting and inspiring.",
     },
 
     {
@@ -59,7 +59,7 @@ const AboutData = [
         "id" : "about8",
         "image": {
             "imgStyle" : "wave-image",
-            "url" : "https://emojipedia-us.s3.amazonaws.com/source/noto-emoji-animations/344/waving-hand_1f44b.gif" 
+            "url" : "https://media2.giphy.com/media/w1OBpBd7kJqHrJnJ13/giphy.gif?cid=6c09b952tn835ou0yy75xyq4cspus9ai9u9j85nm8bh5nd0w&ep=v1_stickers_related&rid=giphy.gif&ct=s" 
         },
         "content" : "Thanks for stopping by and I hope you enjoy my portfolio!",
     },
