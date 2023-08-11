@@ -14,7 +14,7 @@ const Contact = () => {
                     heightCalculationMethod="lowestElement"
                     autoResize = 'true'
                     checkOrigin="false"
-                    src="https://projects.n8s.pw/contact-form"
+                    src="https://n8s.pw/wp/contact-form"
                     style={{ width: '1px', minWidth: '100%'}}
                     />
                 </div>
