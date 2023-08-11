@@ -17,7 +17,7 @@ const Home = () => {
                     <StarrySky/>
             </div>
             <div className="info-box">
-                <img alt="github profile" src='http://github.com/natesheridan.png'></img>
+                <img alt="github profile" src='https://github.com/natesheridan.png'></img>
                 <h1>Nate Sheridan</h1>
                 <h4>software development, tech, cars</h4>
                 <div className="info-btns">

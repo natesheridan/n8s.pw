@@ -27,8 +27,6 @@ const Projects = () => {
                     onClick={()=>{checkFrameUrl()}}
                     id='projectsFrame' 
                     heightCalculationMethod="lowestElement"
-                    autoResize = 'true'
-                    checkOrigin="false"
                     src="https://n8s.pw/wp/"
                     style={{ width: '1px', minWidth: '100%'}}
                     // warningTimeout='2000'
