@@ -11,24 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-@media (prefers-color-scheme: dark) {
-  main {
-    background: black !important;
-    color: darkgrey
-  }
-  body{
-    background: black !important;
-  }
-  .header{
-    background: rgb(0, 0, 0);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.6) 61%, rgb(80, 82, 96) 80%, #8894ff 100%) !important;
-  }
-  .footer{
-    background: linear-gradient(180deg, #ffffff00 1%, #2c2c2c 61%, #202024 80%, #8a95ff 100%) !important;
-  }
-  .scroll-arrow{
-    color: white !important;
-  }
-  
-
-}

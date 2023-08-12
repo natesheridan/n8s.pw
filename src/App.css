@@ -10,6 +10,10 @@ main {
   
   text-align: center;
   font-family: arial, ubuntu, roboto, noto, -apple-system, helvetica, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 a, a:link, a:visited, a:focus, a:hover, a:active{
@@ -24,4 +28,34 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
   padding-top: 40px;
   margin: 0 auto;
   max-width: 1200px;
+}
+
+@media (prefers-color-scheme: dark) {
+  main {
+    background: #332c3b !important;
+    color: darkgrey
+  }
+  body{
+    background: #332c3b !important;
+  }
+  .header{
+    background: 332c3b;
+    background: linear-gradient(0deg, #332c3b 1%, #332c3b 61%, rgb(80, 82, 96) 80%, #8894ff 100%) !important;
+    
+  }
+  .footer{
+    background: linear-gradient(180deg, #332c3b 1%, #46345a 61%, rgb(58, 58, 112) 80%, rgb(138, 149, 255) 100%) !important;
+    margin-top: auto;
+  }
+  .scroll-arrow{
+    color: white !important;
+  }
+  .box.bc-white{
+    background-color: #2c2c2c !important;
+  }
+  .box.bc-blue{
+    background-color: #232230 !important;
+  }
+  
+
 }
