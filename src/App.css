@@ -1,61 +1,106 @@
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  --text-primary: #2D3748;
+  --text-secondary: #4A5568;
+  --accent-gradient: linear-gradient(135deg, #6B73FF, #000DFF);
+  --surface-glass: rgba(255, 255, 255, 0.7);
+  --blur-strength: 10px;
+  --header-height: 60px;
+}
 
 main {
   background-image: url("https://n8s.pw/pkg-assets/paper.jpg");
-  
-  /* background-repeat: no-repeat; */
-  background-size: auto;
-
-  /* background-size: 50px 50px; */
+  background-size: cover;
   background-attachment: fixed;
-  
   text-align: center;
-  font-family: arial, ubuntu, roboto, noto, -apple-system, helvetica, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   justify-content: space-between;
+  color: var(--text-primary);
 }
 
-a, a:link, a:visited, a:focus, a:hover, a:active{
-  text-decoration:none; 
-  cursor: crosshair;
+main.has-header {
+  padding-top: var(--header-height);
 }
-:-webkit-any-link {
-  text-decoration:none; 
-  cursor: crosshair;
+
+a, a:link, a:visited, a:focus, a:hover, a:active {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+  transition: all 0.3s ease;
 }
-.content{
+
+.content {
   padding-top: 40px;
   margin: 0 auto;
   max-width: 1200px;
+  width: 100%;
+  backdrop-filter: blur(var(--blur-strength));
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding: 1.5rem;
+    padding-top: 30px;
+    margin: 0 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content {
+    padding: 1rem;
+    padding-top: 20px;
+    margin: 0 8px;
+    border-radius: 12px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-  main {
-    background: #332c3b !important;
-    color: darkgrey
-  }
-  body{
-    background: #332c3b !important;
-  }
-  .header{
-    background: 332c3b;
-    background: linear-gradient(0deg, #332c3b 1%, #332c3b 61%, rgb(80, 82, 96) 80%, #8894ff 100%) !important;
-    
-  }
-  .footer{
-    background: linear-gradient(180deg, #332c3b 1%, #46345a 61%, rgb(58, 58, 112) 80%, rgb(138, 149, 255) 100%) !important;
-    margin-top: auto;
-  }
-  .scroll-arrow{
-    color: white !important;
-  }
-  .box.bc-white{
-    background-color: #2c2c2c !important;
-  }
-  .box.bc-blue{
-    background-color: #232230 !important;
+  :root {
+    --text-primary: #E2E8F0;
+    --text-secondary: #A0AEC0;
+    --glass-bg: rgba(26, 32, 44, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
   }
   
-
+  main {
+    background: #1A202C;
+  }
+  
+  .header {
+    background: linear-gradient(0deg, 
+      rgba(26, 32, 44, 0) 0%,
+      rgba(26, 32, 44, 0.8) 50%,
+      rgba(26, 32, 44, 0.95) 100%
+    );
+  }
+  
+  .footer {
+    background: linear-gradient(180deg,
+      rgba(26, 32, 44, 0) 0%,
+      rgba(26, 32, 44, 0.8) 50%,
+      rgba(26, 32, 44, 0.95) 100%
+    );
+  }
+  
+  .box.bc-white {
+    background: rgba(45, 55, 72, 0.7);
+    backdrop-filter: blur(var(--blur-strength));
+  }
+  
+  .box.bc-blue {
+    background: rgba(44, 82, 130, 0.7);
+    backdrop-filter: blur(var(--blur-strength));
+  }
 }
+

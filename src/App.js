@@ -1,5 +1,5 @@
 import './App.css';
-import {Route} from 'react-router-dom';
+import {Route, useLocation} from 'react-router-dom';
 import About from './Pages/About/About.js'
 import Contact from './Pages/Contact/Contact.js'
 import Home from './Pages/Home/Home.js'
@@ -8,16 +8,14 @@ import Header from './Components/Header/Header.js'
 import Footer from './Components/Footer/Footer.js'
 import ScrollArrow from './Components/ScrollArrow/ScrollArrow.js'
 
-
 function App() {
-
-
-
+  const location = useLocation();
+  const hasHeader = ['/projects', '/about', '/contact'].includes(location.pathname);
   
   return(
     <>
     <ScrollArrow />
-    <main onScroll={console.log("Scroll")} >
+    <main className={hasHeader ? 'has-header' : ''} onScroll={console.log("Scroll")} >
         <Route exact path = {['/projects', '/about', '/contact']} render = {() => <Header />} />
       <div className="content-container">
         <Route exact path = {['/home', '/']} render = {() => <Home />} />

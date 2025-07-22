@@ -1,0 +1,143 @@
+.contact {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.contact h1 {
+    font-size: 2.5em;
+    margin-bottom: 32px;
+    text-align: center;
+    font-family: 'Poiret One', cursive;
+}
+
+.contact-message {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 24px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contact-message p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    color: #2D3748;
+}
+
+.contact-message p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.contact-option {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 24px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.contact-option:hover {
+    transform: translateY(-2px);
+}
+
+.contact-option h3 {
+    font-size: 1.3em;
+    margin-bottom: 16px;
+    color: #2D3748;
+}
+
+.contact-option p {
+    margin-bottom: 16px;
+    line-height: 1.5;
+    color: #4A5568;
+}
+
+.email {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    background: #2D3748;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin: 12px 0;
+    font-size: 1.1em;
+}
+
+.email-note {
+    font-size: 0.9em;
+    color: #718096;
+    font-style: italic;
+}
+
+.emoji {
+    display: inline-block;
+    transform: translateY(1px);
+}
+
+@media (max-width: 480px) {
+    .contact {
+        padding: 24px 16px;
+    }
+
+    .contact h1 {
+        font-size: 2em;
+        margin-bottom: 24px;
+    }
+
+    .contact-message {
+        padding: 20px;
+        margin-bottom: 32px;
+    }
+
+    .contact-message p {
+        font-size: 1em;
+    }
+
+    .contact-options {
+        gap: 16px;
+    }
+
+    .contact-option {
+        padding: 20px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .contact-message,
+    .contact-option {
+        background: rgba(45, 55, 72, 0.9);
+    }
+
+    .contact-message p {
+        color: #E2E8F0;
+    }
+
+    .contact-option h3 {
+        color: #E2E8F0;
+    }
+
+    .contact-option p {
+        color: #A0AEC0;
+    }
+
+    .email {
+        background: #1A202C;
+        color: #E2E8F0;
+    }
+
+    .email-note {
+        color: #A0AEC0;
+    }
+} 

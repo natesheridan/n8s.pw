@@ -1,41 +1,142 @@
-
 .button {
-  align-items: center;
-  appearance: none;
-  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
-  border: 0;
-  border-radius: 6px;
-  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
-  box-sizing: border-box;
-  color: #fff;
-  display: inline-flex;
-  font-family: "JetBrains Mono",monospace;
-  height: 36px;
-  justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  padding: 0 4px;
-  margin: 0 8px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow,transform;
-  font-size: 18px;
+    align-items: center;
+    appearance: none;
+    background: linear-gradient(135deg, rgba(107, 115, 255, 0.3), rgba(107, 115, 255, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(107, 115, 255, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    color: white;
+    display: inline-flex;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    height: 40px;
+    justify-content: center;
+    line-height: 1;
+    min-width: 100px;
+    overflow: hidden;
+    padding: 0 16px;
+    margin: 0 8px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: transform, box-shadow, backdrop-filter;
+    font-size: 0.95em;
+    font-weight: 600;
+    backdrop-filter: blur(var(--blur-strength));
+    background-color: rgba(107, 115, 255, 0.05);
 }
-  
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transform: translateX(-100%);
+    transition: 0.6s;
+}
+
 .button:hover {
-  color: black;
-  cursor: pointer;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(107, 115, 255, 0.2);
 }
 
-.button-dark{
-  background-image: radial-gradient(100% 100% at 100% 0, #2c697a 0, #3b48a6 100%);
+.button:hover::before {
+    transform: translateX(100%);
+}
 
+.button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 4px 12px rgba(107, 115, 255, 0.15);
+}
+
+.button-dark {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Size variants */
+.button-small {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 0.85em;
+    min-width: 80px;
+}
+
+.button-large {
+    height: 48px;
+    padding: 0 24px;
+    font-size: 1.05em;
+    min-width: 120px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 480px) {
+    .button {
+        height: 36px;
+        padding: 0 12px;
+        min-width: 90px;
+        font-size: 0.9em;
+        margin: 0 4px;
+    }
+    
+    .button-small {
+        height: 30px;
+        padding: 0 10px;
+        font-size: 0.8em;
+        min-width: 70px;
+    }
+    
+    .button-large {
+        height: 42px;
+        padding: 0 16px;
+        font-size: 1em;
+        min-width: 100px;
+    }
+}
+
+/* State variants */
+.button-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.button-loading {
+    cursor: wait;
+    position: relative;
+    color: transparent;
+}
+
+.button-loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: button-loading-spinner 0.8s linear infinite;
+}
+
+@keyframes button-loading-spinner {
+    to {
+        transform: rotate(360deg);
+    }
 }
   

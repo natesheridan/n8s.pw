@@ -1,92 +1,145 @@
-.home{
-
+.home {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.info-box{
-    position: absolute;
+
+.info-box {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    min-width: 300px;
+    min-width: 280px;
     max-width: 500px;
-    width: 40vw;
-    height: 400px;
-    background: #fff;
-    margin: -80vh auto;
-    position:relative;
-    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-    z-index:555;
-    border-radius: 10px;
-}
-.info-box h1{
-    font-family: 'Poiret One', cursive;
-    font-size:2.2em;
-}
-.info-box h4{  
-    font-family: "JetBrains Mono",monospace;
-    font-size:1.1em;
-    margin-top:-40px;
-}
-.info-box img{
-    margin: 0 auto;
-    margin-top: -125px;
-    height: 200px;
-    width: 200px;
-    border-radius: 100px;
-    box-shadow: 
-        2px 3px 5px rgba(0, 0, 0, 0.7);
-}
-.info-btns{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+    width: 90vw;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 32px 24px;
+    margin: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 555;
+    border-radius: 16px;
+    box-sizing: border-box;
+    gap: 24px;
 }
 
+.info-box h1 {
+    font-family: 'Poiret One', cursive;
+    font-size: 2.2em;
+    margin: 16px 0 8px 0;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h4 {  
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.info-box img {
+    margin: 0 auto;
+    margin-top: -80px;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.info-btns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 480px) {
+    .info-box {
+        padding: 24px 16px;
+        margin: 16px;
+        gap: 16px;
+    }
+
+    .info-box img {
+        height: 140px;
+        width: 140px;
+        margin-top: -70px;
+    }
+
+    .info-box h1 {
+        font-size: 1.8em;
+        margin: 12px 0 4px 0;
+    }
+
+    .info-box h4 {
+        font-size: 0.95em;
+    }
+
+    .info-btns {
+        gap: 8px;
+        padding: 4px 0;
+    }
+}
+
+/* Keep existing sky container and animation styles */
 .sky-container {
-  width: 100%;
-  height:100vh;
-  overflow: hidden;
-  background: linear-gradient(
-    to top, 
-    #3b3b3b 5%,
-    #3b3b3b 15%,
-    #415eff 70%,
-    #415eff 90%
-  );
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(
+        to top, 
+        #3b3b3b 5%,
+        #3b3b3b 15%,
+        #415eff 70%,
+        #415eff 90%
+    );
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
+
 #sky {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  left: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    left: 0;
 }
-.sky{
+
+.sky {
     overflow: hidden;
     height: 100vh;
 }
 
 #shootingstars {
-  margin: 0;
-  padding: 0;
-  width: 150vh;
-  height: 100vw;
-  position: fixed;
-  overflow: hidden;
-  transform: rotate(0deg);
+    margin: 0;
+    padding: 0;
+    width: 150vh;
+    height: 100vw;
+    position: fixed;
+    overflow: hidden;
+    transform: rotate(0deg);
 }
 
 .wish {
-  height: 2px;
-  top: 300px;
-  width: 100px;
-  margin: 0;
-  opacity: 0;
-  padding: 0;
-  background-color: white;
-  position: absolute;
-  background: linear-gradient(-45deg, white, rgba(0, 0, 255, 0));
-  filter: drop-shadow(0 0 6px white);
-  overflow: hidden;
+    height: 2px;
+    top: 300px;
+    width: 100px;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    background-color: white;
+    position: absolute;
+    background: linear-gradient(-45deg, white, rgba(0, 0, 255, 0));
+    filter: drop-shadow(0 0 6px white);
+    overflow: hidden;
 }
