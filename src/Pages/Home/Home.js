@@ -48,6 +48,11 @@ const Home = () => {
                     <SocialButton label={"Resume"} to={"https://n8s.pw/assets/ResumeNoPhone.pdf"} size={50} faIcon={"FaScroll"}/>
                     </Fade>
                 </div>
+                
+                <Fade top delay={1000}>
+                    <div className="info-btns"><Fade top delay={1100}>n8s.pw</Fade> | <Fade top delay={1200}>n8.wtf</Fade> | <Fade top delay={1300} ><a href="https://autofoc.us">autofoc.us</a></Fade></div>
+                    <h6>(im kind of actively rebuilding this site shhhh)</h6>   
+                </Fade>
 
             </div>
         </section>
