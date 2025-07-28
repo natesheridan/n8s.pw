@@ -1,0 +1,1 @@
+.car-container{position:relative;width:100%;max-width:400px;margin:2rem auto}.car-svg{width:100%;z-index:1}.road{position:absolute;bottom:10px;left:50%;transform:translate(-50%);width:120%;height:5px;background-color:#333;z-index:0}
