@@ -35,10 +35,11 @@ jobs:
       - name: List output files
         run: ls -R dist
 
+      - name: Install lftp
+        run: sudo apt-get -y install lftp
+
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ftp.n8s.pw
-          username: deploy@n8s.pw
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
+        env:
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "open -u deploy@n8s.pw,$FTP_PASSWORD ftp.n8s.pw; mirror -R --verbose ./dist/ ."
