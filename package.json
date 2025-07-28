@@ -21,5 +21,9 @@
   "devDependencies": {
     "@preact/preset-vite": "^2.8.1",
     "vite": "^5.1.4"
+  },
+  "overrides": {
+    "react": "npm:@preact/compat",
+    "react-dom": "npm:@preact/compat"
   }
 }
