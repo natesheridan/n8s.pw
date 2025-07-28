@@ -1,12 +1,7 @@
 import React from 'react';
 import './DynamicBox.css';
-import Fade from 'react-reveal/Fade';
+import { motion } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
-import IframeResizer from 'iframe-resizer-react'
-
-
-
-
 
 const DynamicBox = ({type, color, image, header, subheader, content, link, side, id, typeDelay, iframe}) => {
     if(type==="slider"){
@@ -33,9 +28,9 @@ const DynamicBox = ({type, color, image, header, subheader, content, link, side,
     return (
         <div key={id} id={id} className = {`box bc-${color} bf-${side}`}>
                 {image && 
-                    <Fade delay={1100}>
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1, duration: 1 }}>
                         <img alt={header} className = {image.imgStyle} src={image.url}></img>
-                    </Fade>
+                    </motion.div>
                 }
                 {header &&
                     <h1 className="h1">{header}</h1>
@@ -57,14 +52,12 @@ const DynamicBox = ({type, color, image, header, subheader, content, link, side,
                 {content && 
                         <p>{content}</p>
                 }
-                {iframe && 
-                    <IframeResizer 
-                    id={`${id}_frame`} 
-                    heightCalculationMethod="lowestElement"
-                    warningTimeout={0}
-                    src={iframe.url}
-                    style={{ width: '1px', minWidth: '100%', height: `${iframe.height}px` }}
-                    // warningTimeout='2000'
+                {iframe &&
+                    <iframe
+                        id={`${id}_frame`}
+                        src={iframe.url}
+                        style={{ width: '1px', minWidth: '100%', height: `${iframe.height}px`, border: 'none' }}
+                        title={header}
                     />
                 }
                 {link && 

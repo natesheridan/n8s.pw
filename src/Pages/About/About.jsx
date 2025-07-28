@@ -1,6 +1,6 @@
 import React from 'react'
 import DynamicBox from './../../Components/DynamicBox/DynamicBox'
-import Fade from 'react-reveal/Fade'
+import { motion } from 'framer-motion';
 import AboutData from './AboutData'
 
 const About = () => {
@@ -12,7 +12,7 @@ const About = () => {
         const c = cardData
         if(isOdd(i)){
             return(
-                <Fade right key={i}>
+                <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} key={i}>
                     <DynamicBox
                         color='white'
                         image={c.image}
@@ -24,12 +24,12 @@ const About = () => {
                         typeDelay = {c.typeDelay}
                         iframe = {c.iframe}
                         side="right"/>
-                </Fade>
+                </motion.div>
             )
         }
 
         return(
-            <Fade left key={i}>
+            <motion.div initial={{ opacity: 0, x: -100 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} key={i}>
                 <DynamicBox
                     color='blue'
                     image={c.image}
@@ -42,7 +42,7 @@ const About = () => {
                     iframe = {c.iframe}
 
                     side="left"/>
-            </Fade>
+            </motion.div>
         )
     })
 

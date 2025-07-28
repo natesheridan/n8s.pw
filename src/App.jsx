@@ -1,12 +1,12 @@
 import './App.css';
 import {Route, useLocation} from 'react-router-dom';
-import About from './Pages/About/About.js'
-import Contact from './Pages/Contact/Contact.js'
-import Home from './Pages/Home/Home.js'
-import Projects from './Pages/Projects/Projects.js'
-import Header from './Components/Header/Header.js'
-import Footer from './Components/Footer/Footer.js'
-import ScrollArrow from './Components/ScrollArrow/ScrollArrow.js'
+import About from './Pages/About/About.jsx'
+import Contact from './Pages/Contact/Contact.jsx'
+import Home from './Pages/Home/Home.jsx'
+import Projects from './Pages/Projects/Projects.jsx'
+import Header from './Components/Header/Header.jsx'
+import Footer from './Components/Footer/Footer.jsx'
+import ScrollArrow from './Components/ScrollArrow/ScrollArrow.jsx'
 
 function App() {
   const location = useLocation();

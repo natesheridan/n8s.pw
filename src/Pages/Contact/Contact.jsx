@@ -1,5 +1,5 @@
 import React from 'react'
-import Fade from 'react-reveal/Fade'
+import { motion } from 'framer-motion';
 import './Contact.css'
 import Button from '../../Components/Button/Button'
 
@@ -7,11 +7,11 @@ const Contact = () => {
     return (
     <>
         <section className="content contact">
-            <Fade bottom delay={200}>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}>
                 <h1>Let's Connect! <span className="emoji">🤝</span></h1>
-            </Fade>
+            </motion.div>
             
-            <Fade bottom delay={400}>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.5 }}>
                 <div className="contact-message">
                     <p>
                         Hey there! Thanks for wanting to reach out. Fair warning: my inbox is like a black hole 
@@ -24,9 +24,9 @@ const Contact = () => {
                         <span className="emoji">⏰</span>
                     </p>
                 </div>
-            </Fade>
+            </motion.div>
 
-            <Fade bottom delay={600}>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }}>
                 <div className="contact-options">
                     <div className="contact-option">
                         <h3>For Business and Career Driven Opportunities <span className="emoji">⚡</span></h3>
@@ -42,7 +42,7 @@ const Contact = () => {
                         <p>If you're feeling adventurous, try my email (this is the black hole):</p>
                         <code className="email">nate@n8s.pw</code>
                         <p className="email-note">(No spam please, my spam folder is already full enough to feed a small village)</p>
-
+                    </div>
                     <div className="contact-option">
                         <h3>For Emergencies <span className="emoji">📱</span></h3>
                         <p>
@@ -55,9 +55,8 @@ const Contact = () => {
                             onClick={() => window.open('https://www.google.com/search?q=n8s+phone+number', '_blank')}
                         />
                     </div>
-                    </div>
                 </div>
-            </Fade>
+            </motion.div>
         </section>
     </>
     )

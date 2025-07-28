@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css'
-import Bounce from 'react-reveal/Bounce';
+import { motion } from 'framer-motion';
 
 const Header = () => {
     const [isHidden, setIsHidden] = useState(false);
@@ -54,18 +54,18 @@ const Header = () => {
                     <span className={isMobileMenuOpen ? 'open' : ''}></span>
                 </button>
                 <div className="nav-header">
-                    <Bounce top delay={500}>
+                    <motion.div initial={{ y: -250 }} animate={{ y: 0 }} transition={{ delay: 0.5, type: 'spring', stiffness: 120 }}>
                         <img alt="logo" src='./logo.png'></img>
-                    </Bounce>
+                    </motion.div>
                 </div>
-                <Bounce top delay={500}>
+                <motion.div initial={{ y: -250 }} animate={{ y: 0 }} transition={{ delay: 0.5, type: 'spring', stiffness: 120 }}>
                     <div className={`nav-links ${isMobileMenuOpen ? 'menu-open' : ''}`}>
                         <NavLink onClick={closeMenu} to="/home">home</NavLink>
                         <NavLink onClick={closeMenu} to="/about">about</NavLink>
                         <NavLink onClick={closeMenu} to="/projects">projects</NavLink>
                         <NavLink onClick={closeMenu} to="/contact">contact</NavLink>
                     </div>
-                </Bounce>
+                </motion.div>
             </div>
         </header>
     );
