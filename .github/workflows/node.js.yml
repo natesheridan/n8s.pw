@@ -42,4 +42,4 @@ jobs:
         env:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          lftp -c "open -u deploy@n8s.pw,$FTP_PASSWORD ftp.n8s.pw; mirror -R --verbose ./dist/ ."
+          lftp -c "set ssl:verify-certificate no; open -u deploy@n8s.pw,$FTP_PASSWORD ftp.n8s.pw; mirror -R --verbose ./dist/ ."
