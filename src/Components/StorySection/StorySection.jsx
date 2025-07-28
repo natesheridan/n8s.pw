@@ -7,6 +7,7 @@ const componentMap = {
   Terminal: lazy(() => import('../Terminal/Terminal')),
   CarSvg: lazy(() => import('../CarSvg/CarSvg')),
   SkillsChart: lazy(() => import('../SkillsChart/SkillsChart')),
+  ImageSwiper: lazy(() => import('../ImageSwiper/ImageSwiper')),
 };
 
 const CustomComponent = ({ component }) => {
@@ -84,7 +85,7 @@ const StorySection = ({ section }) => {
             <h1>{section.header}</h1>
             <h2>{section.subheader}</h2>
             {section.link && (
-              <a href={section.link.url} className="resume-button" target="_blank" rel="noopener noreferrer">
+              <a href={section.link.url} className="section-button" target="_blank" rel="noopener noreferrer">
                 {section.link.title}
               </a>
             )}
@@ -94,10 +95,16 @@ const StorySection = ({ section }) => {
   };
 
   return (
-    <section ref={ref} className={`story-section ${section.layout}`} style={{background: 'transparent'}}>
-      {section.background ? (
-        <motion.div className="background-image" style={{ backgroundImage: `url(${section.background.url})`, y }} />
-      ) : null}
+    <section ref={ref} className={`story-section ${section.layout}`}>
+      {section.background && (
+        <motion.div 
+          className="background-image" 
+          style={{ 
+            backgroundImage: `url(${section.background.url})`, 
+            y 
+          }} 
+        />
+      )}
       {renderLayout()}
     </section>
   );

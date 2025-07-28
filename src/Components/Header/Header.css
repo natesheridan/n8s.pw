@@ -143,8 +143,8 @@
         left: 0;
         right: 0;
         flex-direction: column;
-        background: var(--surface-glass);
-        backdrop-filter: blur(calc(var(--blur-strength) * 1.5));
+        background: rgba(26, 26, 46, 0.8);
+        backdrop-filter: blur(10px);
         padding: 16px;
         border-radius: 0 0 16px 16px;
         border: 1px solid var(--glass-border);
