@@ -1,5 +1,4 @@
 import './Home.css'
-import StarrySky from './StarrySky.jsx'
 import { motion } from 'framer-motion';
 import Button from './../../Components/Button/Button.jsx'
 import SocialButton from './../../Components/SocialButton/SocialButton.jsx'
@@ -7,11 +6,7 @@ import SocialButton from './../../Components/SocialButton/SocialButton.jsx'
 const Home = () => {
     return (
     <>
-
         <section className="home">
-            <div className = "sky-container">
-                    <StarrySky/>
-            </div>
             <div className="info-box">
                 <img alt="github profile" src='https://github.com/natesheridan.png'></img>
                 <h1>Nate Sheridan</h1>

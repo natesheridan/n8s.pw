@@ -1,0 +1,26 @@
+.skills-chart {
+    padding: 20px;
+    background: rgba(10, 25, 47, 0.3);
+    border-radius: 10px;
+  }
+  
+  .skill-item {
+    margin-bottom: 15px;
+  }
+  
+  .skill-name {
+    margin-bottom: 5px;
+    color: #ccd6f6;
+  }
+  
+  .skill-bar-container {
+    background-color: #1a3a5f;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .skill-bar {
+    height: 15px;
+    background-color: #07daf7;
+    border-radius: 5px;
+  } 

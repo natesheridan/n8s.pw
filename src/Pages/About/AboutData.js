@@ -1,75 +1,78 @@
 const AboutData = [
-    {
-      id: "about1",
-      typeDelay: 50,
-      header: "👋 Hey, I’m Nate Sheridan",
-      subheader: "Dev. Tinkerer. Car nerd.",
-      content: "",
-      link: {
-        url: "./contact/",
-        title: "Get in touch",
+  {
+    id: 'intro',
+    layout: 'center',
+    header: 'I build cool things.',
+    subheader: "Sometimes on the web, sometimes in my garage, and sometimes on a server rack in my basement. I'm Nate, a developer who just really, really likes to make things work.",
+    image: {
+      url: 'http://github.com/natesheridan.png',
+      imgStyle: 'profile-image',
+    },
+  },
+  {
+    id: 'origin-story',
+    layout: 'center-fullscreen',
+    header: 'It Started with a Hacked Minecraft Client',
+    subheader: "My journey into tech wasn't exactly... orthodox. It involved late nights, a lot of questionable code, and my parents wondering why I wasn't doing my homework. Turns out, trying to get a hacked Minecraft client to run on the family PC was a masterclass in debugging, networking, and creative problem-solving.",
+    component: {
+      name: 'Terminal',
+      props: {
+        text: 'system.log("This is where I learned the magic of turning broken hardware into a working machine. It was a puzzle, a challenge, and a thrill.");',
       },
-      image: {
-        imgStyle: "about-image-1",
-        url: "http://github.com/natesheridan.png",
+    },
+  },
+  {
+    id: 'homelab',
+    layout: 'right',
+    header: 'The Accidental DevOps Engineer',
+    content: "That 'nerding out' never stopped. It evolved into a full-blown homelab with containerized services, load-balanced servers, and a custom DNS setup. I didn't know it at the time, but I was teaching myself the fundamentals of DevOps, all because I wanted to host my own game servers and Plex library.",
+    background: {
+      url: 'https://images.unsplash.com/photo-1580894908361-967195033215?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    }
+  },
+  {
+    id: 'turing-school',
+    layout: 'center-fullscreen',
+    header: 'From Hobbyist to Professional',
+    subheader: 'Turing School took my chaotic, self-taught skills and forged them into a professional toolkit. It was there I learned that building for the web was my true passion.',
+    component: {
+      name: 'SkillsChart',
+      props: {
+        skills: [
+          { name: 'React', level: 90 },
+          { name: 'JavaScript', level: 85 },
+          { name: 'CSS', level: 95 },
+          { name: 'HTML', level: 95 },
+          { name: 'Node.js', level: 75 },
+        ],
       },
     },
-    {
-      id: "about2",
-      content:
-        "I’ve always been into breaking stuff to learn how it works. COVID gave me the pause to turn that chaos into skill.",
-    },
-    {
-      id: "about3",
-      content:
-        "With most of my valet hours gone, I started flipping computers — rebuilding, repairing, and reselling. Learned a lot, made rent.",
-    },
-    {
-      id: "about4",
-      content:
-        "That side hustle showed me the value of technical skills. When work picked back up, I chose to invest in myself instead.",
-    },
-    {
-      id: "about5",
-      image: {
-        imgStyle: "about-image-2",
-        url: "https://global-uploads.webflow.com/6181549f60a2245732e2f91b/6193f9ff1e2ea00183765ef1_turing-logo-gray.png",
+  },
+  {
+    id: 'cars-and-photos',
+    layout: 'split',
+    left: {
+      header: 'Wrenching & Shooting',
+      content: 'When I\'m not coding, I\'m either in the garage turning wrenches or behind a camera, trying to capture the perfect shot. Both are just different ways to build something beautiful and functional. It\'s all about the details, whether it\'s a perfectly tuned engine or a perfectly edited photo.',
+      component: {
+        name: 'CarSvg',
       },
-      content:
-        "I enrolled at Turing School and dove head-first into frontend engineering — structured, intense, and exactly what I needed.",
     },
-    {
-      id: "about6",
-      content:
-        "Turing turned a casual interest into real skills. Building for the web clicked hard — and I haven’t stopped since.",
+    right: {
+        header: 'A Different Kind of Debugging',
+        content: 'Photography is another form of problem-solving for me. Finding the right angle, the perfect lighting, the moment that tells a story—it\'s not that different from debugging code or tuning an engine.',
+    }
+  },
+  {
+    id: 'hire-me',
+    layout: 'center',
+    header: 'I\'m Looking for My Next Challenge.',
+    subheader: 'I\'m actively seeking a role where I can bring my unique blend of creativity, technical skill, and obsessive problem-solving to a team that\'s passionate about building great things.',
+    link: {
+      url: 'https://www.n8s.pw/assets/ResumeNoPhone.pdf',
+      title: 'View My Resume',
     },
-    {
-      id: "about7",
-      content:
-        "After graduation, I joined ServiceLogix as a Fullstack Engineer. Great people. Real problems. Lots of ownership.",
-    },
-    {
-      id: "about8",
-      content:
-        "I’ve worked across the stack, built internal tools, deployed custom environments, and learned how small teams really ship things.",
-    },
-    {
-      id: "about9",
-      content:
-        "Outside of work, I’m usually wrenching on my cars, camping, crashing drones in to trees, or messing with hardware until something sparks (literally).",
-    },
-    {
-      id: "about10",
-      content:
-        "I’m always down to talk shop, career, collaborate, or just share what I’ve learned. Hit me up.",
-    },
-    {
-      id: "about11",
-      image: {
-        imgStyle: "wave-image",
-        url: "https://media2.giphy.com/media/w1OBpBd7kJqHrJnJ13/giphy.gif?cid=6c09b952tn835ou0yy75xyq4cspus9ai9u9j85nm8bh5nd0w&ep=v1_stickers_related&rid=giphy.gif&ct=s",
-      },
-      content: "Thanks for checking this out 🙏 Have a fun and quick click through the portfolio",
-    },
-  ]
-  export default AboutData
+  },
+];
+
+export default AboutData;

@@ -1,0 +1,50 @@
+.terminal {
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .terminal-header {
+    background-color: #e0e0e0;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  .terminal-button.red { background-color: #ff5f56; }
+  .terminal-button.yellow { background-color: #ffbd2e; }
+  .terminal-button.green { background-color: #27c93f; }
+  
+  .terminal-body {
+    padding: 15px;
+    color: #00ff00;
+  }
+  
+  .terminal-prompt {
+    margin-right: 10px;
+  }
+  
+  .terminal-cursor {
+    display: inline-block;
+    background-color: #00ff00;
+    width: 8px;
+    height: 1.2em;
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    from, to { background-color: transparent; }
+    50% { background-color: #00ff00; }
+  } 

@@ -1,70 +1,68 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './DynamicBox.css';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
 
-const DynamicBox = ({type, color, image, header, subheader, content, link, side, id, typeDelay, iframe}) => {
-    if(type==="slider"){
-        return (
-            <div className = {`box bc-${color} bf-${side}`}>
-                    {header && 
-                        <h1>{header}</h1>
-                    }
-                    {subheader && 
-                        <h2>{subheader}</h2>
-                    }
+const DynamicBox = (props) => {
+    const { side, color, image, header, subheader, content, link, id, typeDelay, iframe, component } = props;
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"]
+    });
+    const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
 
-                    {content && 
-                        // [contentWrapped]
-                        <></>
-                    }
-                    {link && 
-                        <a href={link.url}>{link.title}</a>
-                    }
-            </div>
-        )
+    if (component) {
+        return null; 
     }
-    
+
     return (
-        <div key={id} id={id} className = {`box bc-${color} bf-${side}`}>
-                {image && 
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1, duration: 1 }}>
-                        <img alt={header} className = {image.imgStyle} src={image.url}></img>
-                    </motion.div>
-                }
-                {header &&
-                    <h1 className="h1">{header}</h1>
-                }
-                {subheader && 
-                    <Typewriter
-                    options={{
-                        stringSplitter : true,
-                        strings: subheader,
-                        autoStart: true,
-                        wrapperClassName:'h2',
-                        cursorClassName:'h2cursor',
-                        
-                        delay: typeDelay,
-                    }}
+        <article 
+            id={id} 
+            className={`dynamic-box ${color}`}
+            ref={ref}
+        >
+            {image && 
+                <div className={`image-container ${side}`}>
+                    <motion.img 
+                        src={image.url} 
+                        alt={header} 
+                        className={`dynamic-image ${image.imgStyle}`} 
+                        style={{ y }}
                     />
-                }
-                
-                {content && 
-                        <p>{content}</p>
-                }
-                {iframe &&
+                </div>
+            }
+            <div className="content-container">
+                {header && <h2>{header}</h2>}
+                {subheader && (
+                    <Typewriter
+                        options={{
+                            strings: subheader,
+                            autoStart: true,
+                            loop: true,
+                            wrapperClassName: 'h2',
+                            cursorClassName: 'h2cursor',
+                            delay: typeDelay,
+                        }}
+                    />
+                )}
+                {content && <p>{content}</p>}
+                {iframe && (
                     <iframe
                         id={`${id}_frame`}
                         src={iframe.url}
                         style={{ width: '1px', minWidth: '100%', height: `${iframe.height}px`, border: 'none' }}
                         title={header}
                     />
-                }
-                {link && 
-                    <a rel="noreferrer" target="_blank" href={link.url}>{link.title}</a>
-                }
-        </div>
-    )
+                )}
+                {link && (
+                    <a rel="noreferrer" target="_blank" href={link.url}>
+                        {link.title}
+                    </a>
+                )}
+            </div>
+        </article>
+    );
 }
 
 export default DynamicBox

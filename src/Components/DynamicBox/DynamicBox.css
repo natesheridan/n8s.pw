@@ -94,3 +94,45 @@
 #toolbar{
     display:none;
 }
+
+.dynamic-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 30px;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dynamic-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.dynamic-box.blue {
+  background: rgba(10, 25, 47, 0.2);
+  border: 1px solid rgba(7, 218, 247, 0.3);
+}
+
+.image-container {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.image-container.left {
+    float: left;
+    margin: 0 20px 20px 0;
+}
+
+.image-container.right {
+    float: right;
+    margin: 0 0 20px 20px;
+}
+
+.dynamic-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}

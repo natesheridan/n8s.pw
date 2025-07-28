@@ -1,3 +1,7 @@
+body {
+  background-color: #000;
+}
+
 :root {
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
@@ -11,17 +15,14 @@
 }
 
 main {
-  background-image: url("https://n8s.pw/pkg-assets/paper.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  text-align: center;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  justify-content: space-between;
-  color: var(--text-primary);
-}
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--text-primary);
+    text-align: center;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
 
 main.has-header {
   padding-top: var(--header-height);
@@ -32,6 +33,57 @@ a, a:link, a:visited, a:focus, a:hover, a:active {
   cursor: pointer;
   color: inherit;
   transition: all 0.3s ease;
+}
+
+.content-container {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.sky {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 0;
+  background: linear-gradient( to top, #3b3b3b 5%, #3b3b3b 15%, #415eff 70%, #415eff 90% );
+}
+
+#sky {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  left: 0;
+}
+
+#shootingstars {
+  margin: 0;
+  padding: 0;
+  width: 150vh;
+  height: 100vw;
+  position: fixed;
+  overflow: hidden;
+  transform: rotate(0deg);
+}
+
+.wish {
+  height: 2px;
+  top: 300px;
+  width: 100px;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  background-color: white;
+  position: absolute;
+  background: linear-gradient(-45deg, white, rgba(0, 0, 255, 0));
+  filter: drop-shadow(0 0 6px white);
+  overflow: hidden;
 }
 
 .content {
@@ -74,7 +126,7 @@ a, a:link, a:visited, a:focus, a:hover, a:active {
   }
   
   main {
-    background: #1A202C;
+    background: transparent;
   }
   
   .header {
