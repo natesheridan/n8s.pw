@@ -36,7 +36,7 @@ jobs:
         run: ls -R dist
 
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftp.n8s.pw
           username: deploy@n8s.pw
