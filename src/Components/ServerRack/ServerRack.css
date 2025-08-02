@@ -1,0 +1,72 @@
+.server-rack-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.rack-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #1a1a1a;
+  border: 4px solid #444;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+.server-unit {
+  background-color: #333;
+  border-radius: 5px;
+  padding: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.server-face {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.leds {
+  display: flex;
+  gap: 5px;
+  margin-right: 15px;
+}
+
+.led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px currentColor;
+}
+
+.led.green {
+  background-color: #2ecc71;
+  color: #2ecc71;
+}
+
+.led.red {
+  background-color: #e74c3c;
+  color: #e74c3c;
+}
+
+.vents {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.vent-slot {
+  background-color: #222;
+  height: 8px;
+  border-radius: 2px;
+}

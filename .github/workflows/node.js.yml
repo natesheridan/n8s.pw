@@ -1,45 +1,31 @@
-name: Node.js CI
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+on: push
+name: 🚀 Deploy website on push
 jobs:
-  build:
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [20.x]
-
     steps:
-      - uses: actions/checkout@v4
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-
-      - run: npm install
-      - run: npm run build --if-present
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-
-      - name: List output files
-        run: ls -R dist
-
-      - name: Install lftp
-        run: sudo apt-get -y install lftp
-
-      - name: 📂 Sync files
-        env:
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          lftp -c "set ssl:verify-certificate no; open -u deploy@n8s.pw,$FTP_PASSWORD ftp.n8s.pw; mirror -R --verbose ./dist/ ."
+    - name: Use Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+      
+    - name: 🔨 Build Project
+      run: |
+        npm ci
+        npm run build
+    
+    - name: List output files
+      run: ls -R dist
+      
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.2.0
+      with:
+        server: ftp.n8s.pw
+        username: deploy@n8s.pw
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./dist/

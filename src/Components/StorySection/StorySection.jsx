@@ -1,13 +1,17 @@
-import React, { lazy, Suspense } from 'react';
-import { motion } from 'framer-motion';
-import { useParallax } from '../../hooks/useParallax';
+import React, { lazy, Suspense, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import './StorySection.css';
+
+const StoryScroller = lazy(() => import('../StoryScroller/StoryScroller'));
 
 const componentMap = {
   Terminal: lazy(() => import('../Terminal/Terminal')),
   CarSvg: lazy(() => import('../CarSvg/CarSvg')),
   SkillsChart: lazy(() => import('../SkillsChart/SkillsChart')),
   ImageSwiper: lazy(() => import('../ImageSwiper/ImageSwiper')),
+  ServerRack: lazy(() => import('../ServerRack/ServerRack')),
+  BuildBreakAnimation: lazy(() => import('../BuildBreakAnimation/BuildBreakAnimation')),
+  ServerStack: lazy(() => import('../ServerStack/ServerStack')),
 };
 
 const CustomComponent = ({ component }) => {
@@ -22,7 +26,16 @@ const CustomComponent = ({ component }) => {
 };
 
 const StorySection = ({ section }) => {
-  const { ref, y } = useParallax();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  if (section.layout === 'fullscreen') {
+    return (
+      <Suspense fallback={<div>Loading Story...</div>}>
+        <StoryScroller story={section.story} />
+      </Suspense>
+    );
+  }
 
   const renderLayout = () => {
     switch (section.layout) {
@@ -41,7 +54,9 @@ const StorySection = ({ section }) => {
       case 'right':
         return (
             <div className="layout-split reversed">
-                <div className="layout-visual"></div>
+                <div className="layout-visual">
+                  <CustomComponent component={section.component} />
+                </div>
                 <div className="layout-text">
                 <h1>{section.header}</h1>
                 <p>{section.content}</p>
@@ -82,8 +97,14 @@ const StorySection = ({ section }) => {
                     />
                 </div>
             )}
-            <h1>{section.header}</h1>
-            <h2>{section.subheader}</h2>
+            {section.component ? (
+              <CustomComponent component={section.component} />
+            ) : (
+              <>
+                <h1>{section.header}</h1>
+                <h2>{section.subheader}</h2>
+              </>
+            )}
             {section.link && (
               <a href={section.link.url} className="section-button" target="_blank" rel="noopener noreferrer">
                 {section.link.title}
@@ -95,18 +116,24 @@ const StorySection = ({ section }) => {
   };
 
   return (
-    <section ref={ref} className={`story-section ${section.layout}`}>
+    <motion.section 
+      ref={ref} 
+      className={`story-section ${section.layout}`}
+      style={{
+        opacity: isInView ? 1 : 0,
+        transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+      }}
+    >
       {section.background && (
         <motion.div 
           className="background-image" 
           style={{ 
             backgroundImage: `url(${section.background.url})`, 
-            y 
           }} 
         />
       )}
       {renderLayout()}
-    </section>
+    </motion.section>
   );
 };
 

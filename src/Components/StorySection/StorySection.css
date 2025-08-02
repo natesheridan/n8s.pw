@@ -66,6 +66,15 @@
   padding-right: 0;
 }
 
+.layout-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+}
+
 .layout-visual {
   flex: 1;
 }
@@ -97,9 +106,6 @@
   text-align: left;
 }
 
-.profile-image-container {
-  margin-bottom: 2rem;
-}
 
 .profile-image {
   width: 150px;

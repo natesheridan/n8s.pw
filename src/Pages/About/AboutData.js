@@ -1,9 +1,190 @@
+/*
+* Story Scroller Data Structure Documentation
+*
+* The `story` array is used by the StoryScroller component to generate a rich, animated narrative experience.
+* Each object in the array represents a "scene" or "slide" in the story.
+*
+*
+* ===== Object Properties =====
+*
+* text: (String)
+*   - The main text to display for the scene.
+*   - For simple, centered text scenes, this is all you need.
+*   - Example: `text: "This is a simple story slide."`
+*
+* background: (String)
+*   - URL for the background image of the scene.
+*   - Can be a remote URL or a local path.
+*
+* component: (Object)
+*   - Defines a dynamic component to be rendered in the scene (e.g., CarSvg, ServerRack, or a generic Image).
+*   - `name`: (String) The name of the component to render. Must match a key in the `componentMap` in StoryScroller.jsx or be 'Image'.
+*   - `props`: (Object) Props to pass to the component.
+*     - `animationType`: (String, Optional) Defines the animation for the component.
+*       - 'drive-by' (default for CarSvg/ServerRack): The component moves across the screen.
+*       - 'slide-in-left': The component slides in from the left.
+*       - 'slide-in-right': The component slides in from the right.
+*       - 'zoom-in': The component scales up from the center.
+*       - 'fade-in': The component simply fades in.
+*     - `align`: (String, Optional) Used with side-by-side layouts. Determines which side the component is on. 'left' or 'right'.
+*
+* textBlock: (Object)
+*   - An alternative to the simple `text` property, offering more control over text styling and positioning.
+*   - `text`: (String) The text content.
+*   - `align`: (String, Optional) Horizontal alignment for the text. 'left', 'right', or 'center'. Default is 'center'.
+*   - `style`: (String, Optional) A predefined style for the text block.
+*     - 'default': Standard paragraph text.
+*     - 'quote': Larger, italicized text with a border, suitable for pull quotes.
+*
+* layout: (String, Optional)
+*   - Defines the overall layout of the scene.
+*   - 'center' (default): A simple, centered layout for text or a component.
+*   - 'side-by-side': A split layout with a component on one side and text on the other.
+*     - Requires `component` and `textBlock` to be defined with `align` properties.
+*     - On mobile, this layout stacks vertically.
+*
+*
+* ===== EXAMPLES =====
+*
+* 1. Simple Centered Text:
+*   {
+*     text: "Hello, world!",
+*     background: 'url-to-image.jpg'
+*   }
+*
+* 2. Component-only Scene (Drive-by animation):
+*   {
+*     text: "A car drives by.",
+*     component: { name: 'CarSvg', props: { direction: 'left-to-right' } },
+*     background: 'url-to-road.jpg'
+*   }
+*
+* 3. Side-by-Side Layout (Image on left, Text on right):
+*   {
+*     layout: 'side-by-side',
+*     textBlock: {
+*       text: "Here is some descriptive text.",
+*       align: 'right'
+*     },
+*     component: {
+*       name: 'Image',
+*       props: {
+*         src: 'https://picsum.photos/400/600',
+*         animationType: 'slide-in-left',
+*         align: 'left'
+*       }
+*     },
+*     background: 'url-to-bg.jpg'
+*   }
+*
+* 4. Focused Quote Text Style:
+*   {
+*     layout: 'center',
+*     textBlock: {
+*       text: '"Creativity is intelligence having fun."',
+*       style: 'quote'
+*     },
+*     background: 'url-to-abstract-bg.jpg'
+*   }
+*/
+
+const story = [
+  {
+    text: "I build cool things.",
+    background: 'https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    text: "Sometimes on the web...",
+  },
+  {
+    text: "...sometimes in my garage...",
+    component: {
+      name: 'Image',
+      props: {
+        src: 'assets/4runner_crop.png',
+        alt: 'A silver Toyota 4Runner with off-road modifications.',
+        animationType: 'drive-and-grow',
+      }
+    },
+    background: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    text: "...and sometimes on a server rack in my basement.",
+    component: {
+      name: 'ServerRack',
+      props: {
+        animate: true,
+      }
+    },
+    background: 'assets/server-rack.jpg',
+  },
+  // --- New Animation Examples ---
+  {
+    layout: 'side-by-side',
+    textBlock: {
+      text: "I enjoy creating interactive and responsive layouts, like this one, where content can be presented engagingly next to visuals.",
+      align: 'right'
+    },
+    component: {
+      name: 'Image',
+      props: {
+        src: 'https://picsum.photos/seed/picsum/800/1200',
+        alt: 'A random high-resolution placeholder image',
+        animationType: 'slide-in-left',
+        align: 'left'
+      }
+    },
+    background: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+  },
+  {
+    layout: 'side-by-side',
+    textBlock: {
+      text: "On mobile, this layout automatically stacks to ensure readability and a great user experience.",
+      align: 'left'
+    },
+    component: {
+      name: 'Image',
+      props: {
+        src: 'https://picsum.photos/seed/random/800/1200',
+        alt: 'A random high-resolution placeholder image',
+        animationType: 'slide-in-right',
+        align: 'right'
+      }
+    },
+    background: 'https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+  },
+  {
+    layout: 'center',
+    textBlock: {
+      text: '"The best way to predict the future is to build it."',
+      style: 'quote'
+    },
+    background: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    text: "Animation Example: Right to Left",
+    component: {
+      name: 'ServerRack',
+      props: {
+        animate: true,
+        speed: 2,
+        direction: 'right-to-left'
+      }
+    },
+    background: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+];
+
 const AboutData = [
   {
-    id: 'intro',
+    id: 'story-scroller',
+    layout: 'fullscreen',
+    story: story,
+  },
+  {
+    id: 'intro-summary',
     layout: 'center',
-    header: 'I build cool things.',
-    subheader: "Sometimes on the web, sometimes in my garage, and sometimes on a server rack in my basement. I'm Nate, a developer who just really, really likes to make things work.",
+    header: "I'm Nate, a developer who just really, really likes to make things work.",
     image: {
       url: 'http://github.com/natesheridan.png',
       imgStyle: 'profile-image',

@@ -3,9 +3,33 @@ import { motion } from 'framer-motion';
 import Button from './../../Components/Button/Button.jsx'
 import SocialButton from './../../Components/SocialButton/SocialButton.jsx'
 
+const pageVariants = {
+  initial: {
+    opacity: 0,
+  },
+  in: {
+    opacity: 1,
+  },
+  out: {
+    opacity: 0,
+  },
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 1.2,
+};
+
 const Home = () => {
     return (
-    <>
+    <motion.div
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+    >
         <section className="home">
             <div className="info-box">
                 <img alt="github profile" src='https://github.com/natesheridan.png'></img>
@@ -51,7 +75,7 @@ const Home = () => {
 
             </div>
         </section>
-    </>
+    </motion.div>
     )
 }
 

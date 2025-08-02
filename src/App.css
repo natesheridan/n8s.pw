@@ -41,6 +41,19 @@ a, a:link, a:visited, a:focus, a:hover, a:active {
   overflow: hidden;
 }
 
+.content-container.overflow-visible {
+  overflow: visible;
+}
+
+.app-container {
+  /* This is necessary to allow position: sticky to work correctly */
+  overflow: initial;
+}
+
+.starry-sky-canvas {
+  position: fixed;
+}
+
 .sky {
   width: 100vw;
   height: 100vh;
