@@ -57,7 +57,7 @@ const originStory = [
   {
     layout: 'center',
     textBlock: {
-      text: 'By 14, I was running my own load-balanced game servers to avoid subscription fees. It was a baptism by fire in system administration.',
+      text: 'By 14, I was running my own load-balanced game servers with 100+ players simultaneously. It was a baptism by fire in system administration.',
       style: 'default'
     },
     component: {
@@ -228,7 +228,7 @@ const AboutData2 = [
     id: 'hire-me',
     layout: 'center',
     header: "I'm Looking for My Next Challenge.",
-    subheader: "If you made it this far—wow, you must really like scrolling. Let's work together!",
+    subheader: "If you made it this far.. wow, you must really like scrolling. Let's work together!",
     link: {
       url: 'https://www.n8s.pw/assets/ResumeNoPhone.pdf',
       title: 'View My Resume',

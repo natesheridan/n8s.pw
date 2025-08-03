@@ -146,11 +146,13 @@
   
     .side-by-side {
       flex-direction: column;
+      justify-content: space-evenly;
       text-align: center !important;
       width: 90%;
       gap: 2rem;
     }
   
+    .side-by-side .story-content,
     .side-by-side .text-block,
     .side-by-side .story-scroller-component {
       text-align: center !important;
