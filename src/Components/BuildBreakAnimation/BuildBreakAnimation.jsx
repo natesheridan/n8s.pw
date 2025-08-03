@@ -69,7 +69,7 @@ const BuildBreakAnimation = () => {
 
     return (
         <h1 ref={ref} className="build-break-animation">
-            I'm Nate, a developer who just really, really likes to&nbsp;
+            Hi, I'm Nate, a another nerd who just really, really likes to&nbsp;
             <span className={`word-wrapper ${highlighted ? 'final-highlight' : ''}`}>
                 <span ref={wordRef} className="word break">
                     {word.split('').map((char, i) => <span key={i}>{char}</span>)}
