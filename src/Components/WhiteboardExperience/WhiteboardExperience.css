@@ -1,0 +1,322 @@
+/* Whiteboard Experience Styles */
+
+.whiteboard-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #f8f9fa;
+    overflow: hidden;
+    z-index: 1000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.whiteboard-canvas {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+.whiteboard-canvas canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: auto !important;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Toolbar */
+.whiteboard-toolbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
+
+.tool-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tool-button {
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    height: 48px;
+}
+
+.tool-button:hover {
+    background: rgba(37, 99, 235, 0.1);
+    border-color: rgba(37, 99, 235, 0.2);
+    transform: translateY(-1px);
+}
+
+.tool-button.active {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    border-color: #2563eb;
+    color: white;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+}
+
+.close-button {
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid rgba(239, 68, 68, 0.2);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #ef4444;
+    font-weight: 600;
+    min-width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-button:hover {
+    background: #ef4444;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
+}
+
+.status-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.connection-status {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 500;
+    padding: 6px 12px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Instructions */
+.whiteboard-instructions {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 16px 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    text-align: center;
+}
+
+.whiteboard-instructions p {
+    margin: 0;
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.whiteboard-instructions p:first-child {
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: #374151;
+}
+
+/* Sticky Notes (for future implementation) */
+.sticky-note {
+    position: absolute;
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    border-radius: 8px;
+    padding: 16px;
+    min-width: 200px;
+    max-width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: rotate(-2deg);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.sticky-note:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.sticky-note-header {
+    font-size: 16px;
+    font-weight: bold;
+    color: #92400e;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sticky-note-icon {
+    font-size: 20px;
+}
+
+.sticky-note-description {
+    font-size: 14px;
+    color: #78350f;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.sticky-note-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.sticky-note-link {
+    background: rgba(146, 64, 14, 0.1);
+    color: #92400e;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.sticky-note-link:hover {
+    background: #92400e;
+    color: white;
+}
+
+/* Loading State */
+.whiteboard-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1002;
+}
+
+.loading-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(37, 99, 235, 0.1);
+    border-left: 4px solid #2563eb;
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.whiteboard-loading p {
+    color: #6b7280;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .whiteboard-toolbar {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        transform: none;
+        border-radius: 12px;
+    }
+    
+    .tool-group {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .status-group {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .whiteboard-instructions {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        transform: none;
+    }
+    
+    .tool-button,
+    .close-button {
+        min-width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+/* Drawing cursor */
+.whiteboard-canvas[style*="crosshair"] {
+    cursor: crosshair !important;
+}
+
+.whiteboard-canvas[style*="grab"]:active {
+    cursor: grabbing !important;
+}
+
+/* Selection highlight for active tools */
+.tool-button.active::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #2563eb, #3b82f6, #2563eb);
+    border-radius: 14px;
+    z-index: -1;
+    opacity: 0.3;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.02);
+    }
+}
