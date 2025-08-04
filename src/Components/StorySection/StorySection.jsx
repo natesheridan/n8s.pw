@@ -12,6 +12,7 @@ const componentMap = {
   ServerRack: lazy(() => import('../ServerRack/ServerRack')),
   BuildBreakAnimation: lazy(() => import('../BuildBreakAnimation/BuildBreakAnimation')),
   ServerStack: lazy(() => import('../ServerStack/ServerStack')),
+  ProjectsList: lazy(() => import('../ProjectsList/ProjectsList')),
 };
 
 const CustomComponent = ({ component }) => {
@@ -97,14 +98,10 @@ const StorySection = ({ section }) => {
                     />
                 </div>
             )}
-            {section.component ? (
-              <CustomComponent component={section.component} />
-            ) : (
-              <>
-                <h1>{section.header}</h1>
-                <h2>{section.subheader}</h2>
-              </>
-            )}
+            {section.header && <h1>{section.header}</h1>}
+            {section.subheader && <h2>{section.subheader}</h2>}
+            {section.component && <CustomComponent component={section.component} />}
+            {section.content && <p className="section-content">{section.content}</p>}
             {section.link && (
               <a href={section.link.url} className="section-button" target="_blank" rel="noopener noreferrer">
                 {section.link.title}

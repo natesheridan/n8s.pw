@@ -32,22 +32,25 @@
     -ms-user-select: none;
 }
 
-/* Toolbar */
+/* Compact Glassmorphism Toolbar */
 .whiteboard-toolbar {
     position: fixed;
-    top: 20px;
+    top: 16px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-    padding: 12px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 8px 12px;
     display: flex;
     align-items: center;
-    gap: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    gap: 8px;
+    box-shadow: 0 4px 20px 0 rgba(31, 38, 135, 0.12);
     z-index: 1001;
+    transition: all 0.3s ease;
+    max-width: 90vw;
+    overflow: hidden;
 }
 
 .tool-group {
@@ -57,55 +60,62 @@
 }
 
 .tool-button {
-    background: transparent;
-    border: 2px solid transparent;
-    border-radius: 12px;
-    padding: 10px 14px;
-    font-size: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 16px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 48px;
-    height: 48px;
+    min-width: 36px;
+    height: 36px;
+    backdrop-filter: blur(5px);
+    color: #2D3748;
+    font-weight: 500;
 }
 
 .tool-button:hover {
-    background: rgba(37, 99, 235, 0.1);
-    border-color: rgba(37, 99, 235, 0.2);
-    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(31, 38, 135, 0.2);
 }
 
 .tool-button.active {
-    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-    border-color: #2563eb;
+    background: linear-gradient(135deg, #6B73FF, #000DFF);
+    border-color: rgba(107, 115, 255, 0.4);
     color: white;
-    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 24px rgba(107, 115, 255, 0.4);
+    transform: translateY(-2px);
 }
 
-.close-button {
-    background: rgba(239, 68, 68, 0.1);
-    border: 2px solid rgba(239, 68, 68, 0.2);
-    border-radius: 12px;
-    padding: 10px 14px;
-    font-size: 18px;
+.whiteboard-close-button {
+    background: rgba(255, 92, 92, 0.1);
+    border: 1px solid rgba(255, 92, 92, 0.3);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 16px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     color: #ef4444;
     font-weight: 600;
-    min-width: 48px;
-    height: 48px;
+    min-width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(5px);
 }
 
-.close-button:hover {
-    background: #ef4444;
+.whiteboard-close-button:hover {
+    background: rgba(239, 68, 68, 0.9);
+    border-color: rgba(239, 68, 68, 0.5);
     color: white;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(239, 68, 68, 0.4);
 }
 
 .status-group {
@@ -115,42 +125,49 @@
 }
 
 .connection-status {
-    font-size: 14px;
-    color: #6b7280;
-    font-weight: 500;
-    padding: 6px 12px;
+    font-size: 12px;
+    color: #10b981;
+    font-weight: 600;
+    padding: 6px 10px;
     background: rgba(16, 185, 129, 0.1);
     border-radius: 8px;
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-/* Instructions */
+/* Glassmorphism Instructions */
 .whiteboard-instructions {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    padding: 16px 24px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 20px 28px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
     z-index: 1001;
     text-align: center;
+    transition: all 0.3s ease;
 }
 
 .whiteboard-instructions p {
     margin: 0;
     font-size: 14px;
-    color: #6b7280;
-    line-height: 1.5;
+    color: #4A5568;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
 .whiteboard-instructions p:first-child {
-    margin-bottom: 4px;
-    font-weight: 600;
-    color: #374151;
+    margin-bottom: 6px;
+    font-weight: 700;
+    color: #2D3748;
+    font-size: 15px;
 }
 
 /* Sticky Notes (for future implementation) */
@@ -251,38 +268,52 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .whiteboard-toolbar {
-        flex-direction: column;
-        gap: 12px;
-        padding: 16px;
-        top: 10px;
-        left: 10px;
-        right: 10px;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 8px 10px;
+        top: 8px;
+        left: 8px;
+        right: 8px;
         transform: none;
-        border-radius: 12px;
+        border-radius: 10px;
+        justify-content: center;
     }
     
     .tool-group {
+        gap: 6px;
+        flex-wrap: wrap;
         justify-content: center;
-        width: 100%;
     }
     
     .status-group {
+        gap: 6px;
+        flex-wrap: wrap;
         justify-content: center;
+        order: -1; /* Move status to top on mobile */
         width: 100%;
     }
     
     .whiteboard-instructions {
-        bottom: 10px;
-        left: 10px;
-        right: 10px;
+        bottom: 8px;
+        left: 8px;
+        right: 8px;
         transform: none;
+        padding: 12px 16px;
+        border-radius: 12px;
     }
     
     .tool-button,
-    .close-button {
-        min-width: 40px;
-        height: 40px;
-        font-size: 16px;
+    .whiteboard-close-button {
+        min-width: 32px;
+        height: 32px;
+        font-size: 14px;
+        padding: 6px 8px;
+    }
+    
+    .connection-status {
+        font-size: 11px;
+        padding: 4px 8px;
+        margin-bottom: 4px;
     }
 }
 
@@ -318,5 +349,48 @@
     50% {
         opacity: 0.5;
         transform: scale(1.02);
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .whiteboard-toolbar {
+        background: rgba(26, 32, 44, 0.7);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .tool-button {
+        background: rgba(26, 32, 44, 0.7);
+        border-color: rgba(255, 255, 255, 0.1);
+        color: #E2E8F0;
+    }
+    
+    .tool-button:hover {
+        background: rgba(45, 55, 72, 0.8);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .whiteboard-close-button {
+        background: rgba(239, 68, 68, 0.2);
+        border-color: rgba(239, 68, 68, 0.4);
+    }
+    
+    .connection-status {
+        color: #10b981;
+        background: rgba(16, 185, 129, 0.2);
+        border-color: rgba(16, 185, 129, 0.4);
+    }
+    
+    .whiteboard-instructions {
+        background: rgba(26, 32, 44, 0.7);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .whiteboard-instructions p {
+        color: #A0AEC0;
+    }
+    
+    .whiteboard-instructions p:first-child {
+        color: #E2E8F0;
     }
 }
