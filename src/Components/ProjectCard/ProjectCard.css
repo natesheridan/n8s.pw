@@ -75,6 +75,18 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.project-icon {
+    font-size: 1.2em;
+    display: inline-block;
+    padding: 4px 8px;
+    background: var(--project-color, #6b73ff);
+    border-radius: 8px;
+    opacity: 0.9;
 }
 
 .subtitle {

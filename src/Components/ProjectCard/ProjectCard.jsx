@@ -53,7 +53,8 @@ const ProjectCard = ({ project, index }) => {
             }}
             style={{
                 transformStyle: "preserve-3d",
-                perspective: "1000px"
+                perspective: "1000px",
+                '--project-color': project.color || '#6b73ff'
             }}
         >
             <div className="card-content" style={{ transform: `translateZ(${isHovered ? 20 : 0}px)` }}>
@@ -62,7 +63,10 @@ const ProjectCard = ({ project, index }) => {
                     {project.featured && <span className="featured-badge">Featured</span>}
                 </div>
                 <div className="card-info">
-                    <h3>{project.title}</h3>
+                    <h3>
+                        {project.icon && <span className="project-icon">{project.icon}</span>}
+                        {project.title}
+                    </h3>
                     <p className="subtitle">{project.subtitle}</p>
                     <div className="tags">
                         {project.tags.map((tag, index) => (

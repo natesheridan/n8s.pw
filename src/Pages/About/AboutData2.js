@@ -225,35 +225,6 @@ const AboutData2 = [
     story: autofocusStory,
   },
   {
-    id: 'whiteboard-experience',
-    layout: 'center',
-    header: 'Interactive Collaboration Made Real',
-    subheader: 'Experience the future of collaborative work with a fully-featured whiteboard that combines drawing, real-time sync, and project visualization. Built with Three.js, React, and cutting-edge web technologies.',
-    component: {
-      name: 'ProjectsList',
-      props: {
-        maxItems: 6
-      }
-    },
-    link: {
-      url: '/whiteboard',
-      title: 'Try the Whiteboard Experience',
-    },
-    background: {
-      url: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-    }
-  },
-  {
-    id: 'whiteboard-features',
-    layout: 'center',
-    header: 'What Makes This Whiteboard Special?',
-    content: `Real-time collaboration meets cutting-edge web technology. This whiteboard supports multi-tab synchronization, touch and mouse input across all devices, live project integration from autofoc.us, advanced 3D rendering with Three.js, responsive design with intuitive zoom controls, and handwritten aesthetics using custom fonts. This isn't just a tech demo - it's a fully functional collaborative workspace that showcases modern web development capabilities.`,
-    link: {
-      url: '/whiteboard',
-      title: 'Start Collaborating →',
-    }
-  },
-  {
     id: 'hire-me',
     layout: 'center',
     header: "I'm Looking for My Next Challenge.",
