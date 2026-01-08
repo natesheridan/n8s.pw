@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import StorySection from '../../Components/StorySection/StorySection';
 import ContactData from './ContactData';
@@ -26,11 +26,6 @@ const pageTransition = {
 };
 
 const Contact = () => {
-  const [isResumeVisible, setIsResumeVisible] = useState(false);
-
-  const showResume = () => setIsResumeVisible(true);
-  const hideResume = () => setIsResumeVisible(false);
-
   return (
     <motion.div 
         className="contact-page"
@@ -40,23 +35,9 @@ const Contact = () => {
         variants={pageVariants}
         transition={pageTransition}
     >
-      {ContactData.map((section) => {
-        if (section.id === 'contact-options') {
-          return <StorySection key={section.id} section={{ ...section, onShowResume: showResume }} />;
-        }
-        return <StorySection key={section.id} section={section} />;
-      })}
-
-      {isResumeVisible && (
-        <div className="resume-popup-overlay" onClick={hideResume}>
-          <div className="resume-popup-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-button" onClick={hideResume}>
-              &times;
-            </button>
-            <iframe src="/assets/ResumeNoPhone.pdf" title="Resume" width="100%" height="100%"></iframe>
-          </div>
-        </div>
-      )}
+      {ContactData.map((section) => (
+        <StorySection key={section.id} section={section} />
+      ))}
     </motion.div>
   );
 };

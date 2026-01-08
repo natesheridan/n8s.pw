@@ -1,5 +1,6 @@
 import React, { lazy, Suspense, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import * as FontAwesome from 'react-icons/fa';
 import './StorySection.css';
 
 const StoryScroller = lazy(() => import('../StoryScroller/StoryScroller'));
@@ -102,6 +103,25 @@ const StorySection = ({ section }) => {
             {section.subheader && <h2>{section.subheader}</h2>}
             {section.component && <CustomComponent component={section.component} />}
             {section.content && <p className="section-content">{section.content}</p>}
+            {section.buttons && (
+              <div className="contact-buttons">
+                {section.buttons.map((button, index) => {
+                  const Icon = FontAwesome[button.icon];
+                  return (
+                    <a
+                      key={index}
+                      href={button.link}
+                      className="contact-button"
+                      target={button.link.startsWith('http') ? '_blank' : undefined}
+                      rel={button.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    >
+                      {Icon && <Icon />}
+                      {button.label}
+                    </a>
+                  );
+                })}
+              </div>
+            )}
             {section.link && (
               <a href={section.link.url} className="section-button" target="_blank" rel="noopener noreferrer">
                 {section.link.title}

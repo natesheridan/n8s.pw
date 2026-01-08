@@ -8,43 +8,30 @@ const ContactData = [
   },
   {
     id: 'contact-options',
-    layout: 'split-contact',
-    left: {
-      header: 'Start a Conversation',
-      content:
-        'The best way to reach me is through email or LinkedIn. I make it a point to respond to every message as quickly as possible.',
-      buttons: [
-        {
-          label: 'Email Me',
-          icon: 'FaEnvelope',
-          link: 'mailto:nate@n8s.pw',
-        },
-        {
-          label: 'LinkedIn',
-          icon: 'FaLinkedin',
-          link: 'https://linkedin.com/in/n8s',
-        },
-      ],
-    },
-    right: {
-      header: 'View My Resume',
-      content:
-        "Want to see the full picture? My resume has all the details about my skills, experience, and the projects I'm most proud of.",
-      buttons: [
-        {
-          label: 'View Resume',
-          icon: 'FaFilePdf',
-          action: 'showResume',
-        },
-      ],
-    },
-  },
-  {
-    id: 'contact-closing',
     layout: 'center',
-    header: "I'm Looking Forward to Hearing from You",
-    subheader:
-      "I'm passionate about creating innovative solutions and collaborating with like-minded people. If you think we'd be a good fit, don't hesitate to get in touch.",
+    header: 'Get in Touch',
+    buttons: [
+      {
+        label: 'LinkedIn',
+        icon: 'FaLinkedin',
+        link: 'https://linkedin.com/in/n8s',
+      },
+      {
+        label: 'Email',
+        icon: 'FaEnvelope',
+        link: 'mailto:nate@autofoc.us',
+      },
+      {
+        label: 'Phone',
+        icon: 'FaPhone',
+        link: 'tel:7202541048',
+      },
+      {
+        label: 'Instagram',
+        icon: 'FaInstagram',
+        link: 'https://instagram.com/1ns9',
+      },
+    ],
   },
 ];
 
