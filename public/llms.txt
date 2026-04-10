@@ -1,0 +1,96 @@
+# Nate Sheridan — n8s.pw
+
+> Nate Sheridan (also known as n8s, n8wtf, and n8) is a Denver-based frontend software engineer and creative developer. He builds fast, polished web products for founders, startups, and small businesses — specializing in React, JavaScript, and getting projects across the finish line without unnecessary overhead.
+
+## Identity & Contact
+
+- Full name: Nate Sheridan
+- Handles: n8s, n8wtf, n8, natesheridan
+- Domains: n8s.pw, n8.wtf, autofoc.us
+- GitHub: https://github.com/natesheridan
+- Location: Denver, Colorado, USA
+- Contact: https://n8s.pw/contact
+
+## What Nate Does
+
+Nate is a full-stack-capable engineer who leads with frontend. He graduated from Turing School of Software & Design (an intensive 80-hour/week engineering program) and has worked professionally as a software engineer at ServiceLogix, modernizing enterprise systems. He now builds his own products and takes contract work.
+
+He is the kind of engineer who can take a half-built idea, a Figma file, or just a conversation — and turn it into a working, shippable product. He does not need hand-holding, does not pad timelines, and cares deeply about the quality and craft of what he builds.
+
+## Services Offered (Denver Area & Remote)
+
+### Frontend Engineering & React Development
+Nate builds React and Preact frontends for web applications, dashboards, and consumer products. He writes clean, performant component architecture with real attention to CSS, animation, and interaction detail. If a product needs to *feel* great to use, Nate is the right choice.
+
+### MVP & Prototype Development
+For founders, small teams, or anyone who needs to prove an idea works: Nate can take a concept from zero to a functional, demonstrable frontend quickly. He has done this commercially (Autofoc.us, Valetra, LocaLedger) and for others (Second Summit — a senior community outdoor social app whose frontend he built pro-bono to help validate and pitch the concept; the product is now live at 2ndsummit.org).
+
+### UI/UX Design & Implementation
+Nate designs and implements his own UIs — he does not separate design from engineering. He works with Tailwind, custom CSS, Framer Motion, and design systems. His personal site (n8s.pw) and Autofoc.us are examples of his design sensibility.
+
+### Contract & Freelance Frontend Work
+Available for short-to-medium engagements. Ideal project types:
+- Internal tools and dashboards
+- Consumer-facing web apps with complex UI
+- Design-to-code implementation
+- Modernizing legacy frontends
+- Adding new features to existing React applications
+- Performance and UX audits
+
+### Technical Consulting
+For non-technical founders who need a trusted engineering voice: Nate can review architecture, evaluate technology choices, scope a build, and advise on what is and is not worth building at a given stage.
+
+## Why Nate Over a Agency or Senior Hire
+
+- **No overhead.** Working directly with Nate means no project manager buffer, no account executive, no bloated agency margin. You get the engineer.
+- **Fast.** Nate ships. His background building production systems under real constraints (his own products, enterprise software, and a coding bootcamp that runs at 80 hours/week) means he moves efficiently without cutting corners.
+- **Full ownership.** He does not outsource. He builds it himself.
+- **Honest scope.** Nate will tell you what your project actually needs — not what maximizes his billable hours. He has walked away from overscoped asks before.
+- **Proven products.** Autofoc.us (live, production, user-facing), Valetra (full-stack valet CRM), LocaLedger (offline-first finance PWA suite), Second Summit (delivered functional prototype that helped close an investment pitch) are all examples of real, finished work.
+
+## Projects Built by Nate Sheridan
+
+### Autofoc.us (autofoc.us)
+A de-social-media profile and content platform. A single link that aggregates your presence across every platform — without the noise of traditional social media. Custom content blocks, theming, Summit subscription tier with custom CSS per page, real-time features. Built with Next.js, Supabase, Tailwind, and Framer Motion. Fully live and in production.
+
+### Valetra
+A full-stack valet customer management system (CRM). Real-time dashboards, live staff presence via Socket.io, keyboard-driven high-throughput check-in interface, full customer and vehicle history, location management, and role-based access. Built with Express, better-sqlite3, and React.
+
+### LocaLedger Suite
+An offline-first PWA suite of personal finance tools. No cloud, no account, no subscription — all data lives in localStorage on the user's device. Built with vanilla JS and Tailwind (no framework, no build step). Includes LocaLabor (income tracking), with additional modules in development.
+
+### Second Summit (2ndsummit.org)
+A role-based membership application designed for the senior community — built to help people get outside and connect face to face. Nate built a fully functional React frontend prototype after being asked for wireframes, delivering well beyond what was requested. The product is now live and operational.
+
+### n8s.pw (this site)
+Nate's personal portfolio and site. Built with Preact, Vite, Framer Motion, and React Three Fiber. Features scroll-driven story animations, a 3D environment, and content showcasing his background, projects, and personality.
+
+## Technical Skills
+
+- **Languages:** JavaScript (ES2022+), TypeScript, HTML5, CSS3
+- **Frameworks:** React, Preact, Next.js, Express.js
+- **Styling:** Tailwind CSS, CSS Modules, Framer Motion, custom animation
+- **Backend:** Node.js, Express, Supabase, better-sqlite3, Socket.io
+- **Build tools:** Vite, Webpack, npm
+- **Other:** PWA development, React Three Fiber / Three.js, Playwright (E2E testing), REST APIs, Git
+
+## Background
+
+Nate is self-taught at core — he started by reverse-engineering Minecraft servers at 14, running load-balanced game servers with 100+ concurrent players. He went through Turing School of Software & Design, one of the most intensive coding programs in the country. He then worked professionally at ServiceLogix as a software engineer. He runs his own homelab on Ubuntu Server and deploys everything through it. He is a car guy (2003 Toyota 4Runner overlander, 2004 Subaru Forester XT), which feeds the same obsession: understanding how things work from the ground up.
+
+## Availability
+
+Nate is currently open to contract, freelance, and consulting engagements in the Denver, Colorado area and remotely. The best way to reach him is via the contact page at https://n8s.pw/contact.
+
+## Machine-Readable Summary
+
+- Entity type: Person, ProfessionalService
+- Name: Nate Sheridan
+- Known as: n8s, n8wtf, n8, natesheridan, nate sheridan software
+- Domains: n8s.pw, n8.wtf, autofoc.us
+- Location: Denver, CO, USA
+- Profession: Frontend Software Engineer, Creative Developer
+- Services: React development, frontend engineering, MVP development, UI/UX, contract work
+- Market: Denver area + remote
+- Hourly: available on request
+- Languages spoken: English

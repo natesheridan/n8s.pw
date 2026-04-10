@@ -1,3 +1,14 @@
-# https://www.robotstxt.org/robotstxt.html
+# robots.txt — n8s.pw
+# Nate Sheridan (n8s, n8wtf) — Denver Frontend Engineer
+# https://n8s.pw
+
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /whiteboard
+
+# Sitemap
+Sitemap: https://n8s.pw/sitemap.xml
+
+# LLM / AI Engine reference
+# Full profile and service description available at:
+# https://n8s.pw/llms.txt

@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "n8s.pw",
+  "name": "Nate Sheridan — n8s.pw",
+  "description": "Portfolio and services site for Nate Sheridan, Denver frontend engineer. React, JavaScript, and shipping products fast.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,16 +11,21 @@
     {
       "src": "logo.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "logo.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#0a0a1a",
+  "background_color": "#0a0a1a",
+  "lang": "en-US",
+  "categories": ["portfolio", "developer", "technology"]
 }

@@ -2,23 +2,153 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Poiret+One&family=Just+Another+Hand&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="Nate Sheridan | N8S.PW"
-      content="Personal Portfolio Website"
-    />
+
+    <!-- ═══════════════════════════════════════════════════════
+         PRIMARY SEO — Title & Description
+    ═══════════════════════════════════════════════════════ -->
+    <title>Nate Sheridan — Frontend Engineer | n8s.pw</title>
+    <meta name="description" content="Nate Sheridan (n8s, n8wtf) is a Denver-based frontend software engineer specializing in React, JavaScript, and shipping polished products fast. Available for contract and freelance work." />
+    <meta name="keywords" content="Nate Sheridan, n8s, n8s.pw, n8wtf, n8.wtf, nate sheridan software, natesheridan, frontend developer Denver, React developer Denver, JavaScript engineer Colorado, freelance frontend developer, autofoc.us, Valetra, LocaLedger, contract developer Denver" />
+    <meta name="author" content="Nate Sheridan" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://n8s.pw/" />
+
+    <!-- ═══════════════════════════════════════════════════════
+         GEO — Denver, CO targeting
+    ═══════════════════════════════════════════════════════ -->
+    <meta name="geo.region" content="US-CO" />
+    <meta name="geo.placename" content="Denver, Colorado" />
+    <meta name="geo.position" content="39.7392;-104.9903" />
+    <meta name="ICBM" content="39.7392, -104.9903" />
+
+    <!-- ═══════════════════════════════════════════════════════
+         OPEN GRAPH — Social sharing / crawlers
+    ═══════════════════════════════════════════════════════ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="n8s.pw" />
+    <meta property="og:title" content="Nate Sheridan — Frontend Engineer | n8s.pw" />
+    <meta property="og:description" content="Nate Sheridan (n8s, n8wtf) is a Denver-based frontend software engineer specializing in React, JavaScript, and shipping polished products fast. Available for contract and freelance work." />
+    <meta property="og:url" content="https://n8s.pw/" />
+    <meta property="og:image" content="https://n8s.pw/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Nate Sheridan — n8s.pw — Frontend Engineer" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ═══════════════════════════════════════════════════════
+         TWITTER / X CARD
+    ═══════════════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@n8wtf" />
+    <meta name="twitter:creator" content="@n8wtf" />
+    <meta name="twitter:title" content="Nate Sheridan — Frontend Engineer | n8s.pw" />
+    <meta name="twitter:description" content="Denver-based frontend engineer. React, JavaScript, CSS — shipping products fast. Autofoc.us, Valetra, LocaLedger and more." />
+    <meta name="twitter:image" content="https://n8s.pw/og-image.png" />
+
+    <!-- ═══════════════════════════════════════════════════════
+         STRUCTURED DATA — JSON-LD (Person + Website + Service)
+    ═══════════════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://n8s.pw/#person",
+          "name": "Nate Sheridan",
+          "alternateName": ["n8s", "n8wtf", "n8", "natesheridan", "nate sheridan software"],
+          "url": "https://n8s.pw",
+          "image": "https://github.com/natesheridan.png",
+          "jobTitle": "Frontend Software Engineer",
+          "description": "Denver-based frontend software engineer. Self-taught, Turing School graduate, and builder of Autofoc.us, Valetra, LocaLedger, and Second Summit. Specializes in React, JavaScript, and delivering polished UIs fast.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Denver",
+            "addressRegion": "CO",
+            "addressCountry": "US"
+          },
+          "sameAs": [
+            "https://github.com/natesheridan",
+            "https://autofoc.us/nate",
+            "https://n8.wtf",
+            "https://n8s.pw"
+          ],
+          "knowsAbout": [
+            "React", "Preact", "JavaScript", "TypeScript", "CSS", "HTML",
+            "Node.js", "Next.js", "Vite", "Frontend Development", "UI Design",
+            "Web Performance", "Supabase", "Socket.io", "PWA Development"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://n8s.pw/#website",
+          "url": "https://n8s.pw",
+          "name": "Nate Sheridan — n8s.pw",
+          "description": "Portfolio and services site for Nate Sheridan, Denver frontend engineer known as n8s and n8wtf.",
+          "author": { "@id": "https://n8s.pw/#person" },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://n8s.pw/#service",
+          "name": "Nate Sheridan — Frontend Engineering & Consulting",
+          "description": "Contract frontend development, React engineering, UI/UX design, and MVP delivery for startups, small businesses, and founders in the Denver, Colorado area.",
+          "provider": { "@id": "https://n8s.pw/#person" },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Denver",
+              "sameAs": "https://www.wikidata.org/wiki/Q16554"
+            },
+            {
+              "@type": "State",
+              "name": "Colorado"
+            }
+          ],
+          "serviceType": [
+            "Frontend Development",
+            "React Development",
+            "JavaScript Engineering",
+            "Web Design",
+            "UI/UX Design",
+            "MVP Development",
+            "Technical Consulting",
+            "Contract Engineering",
+            "PWA Development"
+          ],
+          "url": "https://n8s.pw/contact"
+        }
+      ]
+    }
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════════
+         ICONS & MANIFEST
+    ═══════════════════════════════════════════════════════ -->
+    <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/logo.png" />
     <link rel="manifest" href="/manifest.json" />
-    <title>Nate Sheridan</title>
+    <meta name="theme-color" content="#0a0a1a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="n8s.pw" />
+
+    <!-- ═══════════════════════════════════════════════════════
+         FONTS
+    ═══════════════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Poiret+One&family=Just+Another+Hand&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      Nate Sheridan (n8s, n8wtf) — Denver-based frontend software engineer.
+      React, JavaScript, CSS. Building Autofoc.us, Valetra, LocaLedger, and more.
+      Available for contract and freelance work in the Denver, Colorado area.
+      Visit https://n8s.pw to learn more.
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/index.jsx"></script>
   </body>
-</html> 
+</html>
