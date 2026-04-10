@@ -123,10 +123,30 @@ const StorySection = ({ section }) => {
               </div>
             )}
             {section.link && (
-              <a href={section.link.url} className="section-button" target="_blank" rel="noopener noreferrer">
+              <a
+                href={section.link.url}
+                className="section-button"
+                target={section.link.url.startsWith('http') ? '_blank' : undefined}
+                rel={section.link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+              >
                 {section.link.title}
               </a>
             )}
+            {section.links && section.links.map((link, i) => (
+              <div key={i} className="section-link-group">
+                {link.tagline && (
+                  <p className="link-tagline">{link.tagline} <span className="link-tagline-arrow">↓</span></p>
+                )}
+                <a
+                  href={link.url}
+                  className="section-button secondary"
+                  target={link.url.startsWith('http') ? '_blank' : undefined}
+                  rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                >
+                  {link.title}
+                </a>
+              </div>
+            ))}
           </div>
         );
     }

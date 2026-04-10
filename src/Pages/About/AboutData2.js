@@ -70,7 +70,7 @@ const originStory = [
 const beyondTheScreenStory = [
   {
     text: "The obsession with 'how things work' doesn't stop at the keyboard.",
-    background: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    background: 'https://images.pexels.com/photos/35849577/pexels-photo-35849577.jpeg?_gl=1*5erecc*_ga*NjkxODg5MDU3LjE3NzU3OTI0MDM.*_ga_8JE65Q40S6*czE3NzU3OTI0MDMkbzEkZzEkdDE3NzU3OTI0MTckajQ2JGwwJGgw',
   },
   {
     text: "It extends to the garage.",
@@ -78,33 +78,91 @@ const beyondTheScreenStory = [
       name: 'Image',
       props: {
         src: 'assets/4runner_crop.png',
-        alt: 'A silver Toyota 4Runner modified for overlanding.',
+        alt: 'A gold Toyota 4Runner modified for overlanding.',
         animationType: 'drive-and-grow',
       }
     },
+    background: 'https://images.pexels.com/photos/34337558/pexels-photo-34337558.jpeg?_gl=1*15zhevs*_ga*NjkxODg5MDU3LjE3NzU3OTI0MDM.*_ga_8JE65Q40S6*czE3NzU3OTI0MDMkbzEkZzEkdDE3NzU3OTI4MjEkajUyJGwwJGgw'
   },
   {
     layout: 'side-by-side',
     textBlock: {
-      text: "My 2003 4Runner is my ongoing project in mechanical and electrical engineering—a self-sufficient home on wheels with a solar and dual-battery system I designed and installed.",
+      text: "My 2003 4runner is a overengineered home on wheels, with solar, dual battery, water storage, kitchen, and sleep",
       align: 'right'
     },
     component: {
       name: 'Image',
       props: {
-        src: 'assets/gld4rnr_side.jpg',
+        src: 'assets/gld4rnr_side.png',
         alt: 'A side view of the customized Toyota 4Runner, showing its overlanding gear.',
         animationType: 'slide-in-left',
         align: 'left'
       }
     },
+    background: 'https://images.pexels.com/photos/35843152/pexels-photo-35843152.jpeg?_gl=1*t7nrkt*_ga*NzA5NDg2ODE0LjE3NzU3OTg4MzY.*_ga_8JE65Q40S6*czE3NzU3OTg4MzYkbzEkZzEkdDE3NzU3OTg4NTkkajM3JGwwJGgw',
   },
   {
-    text: "...and to the basement, where my homelab gives me a sandbox for scaling, testing, and self-hosting my own data.",
+    text: "And then.. owning a turbocharged Subaru is a special kind of passion—equal parts exhilaration and (un)expected repair bills.",
+    component: {
+      name: 'Image',
+      props: {
+        src: 'assets/cofxt_crop.png',
+        alt: 'A Subaru Forester XT driving.',
+        animationType: 'drive-and-grow-rtl',
+      }
+    },
+    background: 'https://images.pexels.com/photos/34337558/pexels-photo-34337558.jpeg?_gl=1*15zhevs*_ga*NjkxODg5MDU3LjE3NzU3OTI0MDM.*_ga_8JE65Q40S6*czE3NzU3OTI0MDMkbzEkZzEkdDE3NzU3OTI4MjEkajUyJGwwJGgw',
+  },
+  {
+    layout: 'side-by-side',
+    textBlock: {
+      text: "My 2004 Forester XT is just proof that all the right STI go fast parts, E85 and a short geared 5 speed is some of the most fun you can have driving these. But damn these things love oil..",
+      align: 'left'
+    },
+    component: {
+      name: 'Image',
+      props: {
+        src: 'assets/cofxt_side.png',
+        alt: 'A side view of the Subaru Forester XT.',
+        animationType: 'slide-in-right',
+        align: 'right'
+      }
+    },
+  },
+  {
+    layout: 'cars-converge',
+    textBlock: {
+      text: "Beyond wrenching—understanding how things work from the ground up is the same obsession that drives me from the garage straight into the server room.",
+      style: 'default',
+      align: 'center'
+    },
+    components: [
+      {
+        name: 'Image',
+        props: {
+          src: 'assets/4runner_crop.png',
+          alt: 'Gold Toyota 4Runner parked at top right.',
+          animationType: 'park-top-right',
+        }
+      },
+      {
+        name: 'Image',
+        props: {
+          src: 'assets/cofxt_crop.png',
+          alt: 'Silver Subaru Forester XT parked at top left.',
+          animationType: 'park-top-left',
+        }
+      }
+    ],
+    background: 'https://images.pexels.com/photos/34337558/pexels-photo-34337558.jpeg?_gl=1*15zhevs*_ga*NjkxODg5MDU3LjE3NzU3OTI0MDM.*_ga_8JE65Q40S6*czE3NzU3OTI0MDMkbzEkZzEkdDE3NzU3OTI4MjEkajUyJGwwJGgw',
+  },
+
+  {
+    text: "...and to the heart of how my code works, anything personal I've ever deployed on the internet went through my homelab. Ubuntu Server is peak",
     component: {
       name: 'ServerRack'
     },
-    
+    background: 'https://images.pexels.com/photos/5050305/pexels-photo-5050305.jpeg?_gl=1*oy9rjt*_ga*NjkxODg5MDU3LjE3NzU3OTI0MDM.*_ga_8JE65Q40S6*czE3NzU3OTI0MDMkbzEkZzEkdDE3NzU3OTI3NjMkajQ3JGwwJGgw',
   },
   {
     layout: 'center',
@@ -112,54 +170,155 @@ const beyondTheScreenStory = [
       text: '"Whether it\'s code or a car, I love taking things apart and putting them back together. Creativity is driven by understanding things from the ground up."',
       style: 'quote'
     },
+    background: 'https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png',
   },
 ];
 
 // --- Story for the Autofoc.us Section ---
 const autofocusStory = [
     {
-        text: "and ultimately, solving my own equally shared problems for an audience of one wasn't enough. I wanted to take what I'd learned and build something for others.",
-        background: 'https://images.unsplash.com/photo-1521898294357-1867b9a76541?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        text: "Solving my own problems for an audience of one was never going to be enough. I wanted to build something for everyone.",
+        background: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0',
     },
     {
         layout: 'side-by-side',
         textBlock: {
-          text: "That led to Autofoc.us—a side project built to solve my own frustrations with the scattered nature of social media.",
+          text: "Autofoc.us is a de-social-media profile and content platform—a single link that bridges your presence across every platform without the noise.",
           align: 'left'
         },
         component: {
           name: 'Image',
           props: {
-            src: 'https://picsum.photos/seed/autofocus-ui/1200/800',
-            alt: 'A screenshot of the Autofoc.us user interface.',
+            src: 'assets/autofocus_mobile.jpg',
+            alt: 'A mobile screenshot of the Autofoc.us profile page interface.',
             animationType: 'slide-in-right',
             align: 'right',
             imgStyle: 'screenshot-image'
           }
         },
+        background: 'https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png',
     },
     {
         layout: 'center',
         textBlock: {
-            text: "autofoc.us is a passion project driven to stay alive, not a startup whose goal is profit at this time.",
+            text: '"A passion project driven to stay alive—not a startup chasing profit, but crafted to be something worth using."',
             style: 'quote'
         },
         link: {
             url: 'https://www.autofoc.us',
-            title: 'Check out the project',
+            title: 'Check out Autofoc.us',
         },
+        background: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0',
+    },
+];
+
+// --- Story for the Second Summit Section ---
+const secondsummitStory = [
+    {
+        text: "Some of the best projects start with a phone call from someone you care about.",
+        background: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0',
+    },
+    {
+        layout: 'side-by-side',
+        textBlock: {
+            text: "Second Summit is a role-based membership app built for the senior community—designed to get people outside, connecting face to face. Someone close reached out for wireframes. I went a step further and delivered a full functional frontend. Their site at 2ndsummit.org, while it took its own direction, helped prove the concept and get the idea off the ground.",
+            align: 'right'
+        },
+        component: {
+            name: 'Image',
+            props: {
+                src: 'assets/secondsummitdemo.gif',
+                alt: 'A walkthrough demo of the Second Summit app interface.',
+                animationType: 'slide-in-left',
+                align: 'left',
+                imgStyle: 'screenshot-image'
+            }
+        },
+        background: 'https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png',
     },
     {
         layout: 'center',
         textBlock: {
-            text: "it doesn't make money and it probably wont but it does show off some skills, and when those skills are applied to a team, the results are even better.",
+            text: '"Sometimes the best contribution you can make is the one that helps someone else believe their idea is real."',
             style: 'quote'
         },
         link: {
-            url: 'https://www.autofoc.us',
-            title: 'Check out the project',
+            url: 'https://2ndsummit.org',
+            title: 'Visit 2ndsummit.org',
         },
-    }
+        background: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0',
+    },
+];
+
+// --- Story for the LocaLedger Section ---
+const localedgerStory = [
+    {
+        text: "Not every great tool needs a cloud account, a subscription, or an internet connection.",
+        background: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0',
+    },
+    {
+        layout: 'side-by-side',
+        textBlock: {
+            text: "LocaLedger is a suite of offline-first PWA finance tools—income tracking, expense logging, and more—all stored locally on your device. No cloud. No account. Your data stays yours.",
+            align: 'left'
+        },
+        component: {
+            name: 'Image',
+            props: {
+                src: 'assets/localedger_mobile.jpg',
+                alt: 'A mobile screenshot of the LocaLabor income tracking dashboard.',
+                animationType: 'slide-in-right',
+                align: 'right',
+                imgStyle: 'screenshot-image'
+            }
+        },
+        background: 'https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png',
+    },
+    {
+        layout: 'center',
+        textBlock: {
+            text: '"Privacy-first finance. No server required."',
+            style: 'quote'
+        },
+        link: {
+            url: 'https://github.com/natesheridan',
+            title: 'See the project',
+        },
+    },
+];
+
+// --- Story for the Valetra Section ---
+const valetraStory = [
+    {
+        text: "Running a valet operation is controlled chaos. I built the software to tame it.",
+        background: './assets/valetra_bg.jpg',
+    },
+    {
+        layout: 'side-by-side',
+        textBlock: {
+            text: "Valetra is a full-stack valet CRM—real-time dashboards, full customer history, live staff presence via Socket.io, and a keyboard-driven check-in interface built for high-throughput shifts.",
+            align: 'right'
+        },
+        component: {
+            name: 'Image',
+            props: {
+                src: 'assets/valetra_mobile.jpg',
+                alt: 'A mobile screenshot of the Valetra valet management dashboard.',
+                animationType: 'slide-in-left',
+                align: 'left',
+                imgStyle: 'screenshot-image'
+            }
+        },
+        background: 'https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png',
+    },
+    {
+        layout: 'center',
+        textBlock: {
+            text: '"From ticket to car key—every touchpoint tracked in real time."',
+            style: 'quote'
+        },
+        background: './assets/valetra_bg.jpg',
+    },
 ];
 
 
@@ -225,6 +384,21 @@ const AboutData2 = [
     story: autofocusStory,
   },
   {
+    id: 'secondsummit-story-scroller',
+    layout: 'fullscreen',
+    story: secondsummitStory,
+  },
+  {
+    id: 'localedger-story-scroller',
+    layout: 'fullscreen',
+    story: localedgerStory,
+  },
+  {
+    id: 'valetra-story-scroller',
+    layout: 'fullscreen',
+    story: valetraStory,
+  },
+  {
     id: 'hire-me',
     layout: 'center',
     header: "I'm Looking for My Next Challenge.",
@@ -233,6 +407,13 @@ const AboutData2 = [
       url: 'https://www.n8s.pw/assets/ResumeNoPhone.pdf',
       title: 'View My Resume',
     },
+    links: [
+      {
+        url: '/projects',
+        title: 'Browse Projects',
+        tagline: "I've got some more random projects over here",
+      },
+    ],
     background: {
       url: 'https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     }

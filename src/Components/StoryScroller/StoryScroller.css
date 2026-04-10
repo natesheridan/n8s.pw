@@ -78,10 +78,66 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
 
-  .story-scroller-component.drive-and-grow img {
+  .story-scroller-component.drive-and-grow img,
+  .story-scroller-component.drive-and-grow-rtl img {
     border-radius: 0;
     box-shadow: none;
     z-index: -1;
+  }
+
+  /* --- Park-at-top animations (cars-converge slide) --- */
+  .story-scroller-component.park-top-right {
+    position: absolute;
+    top: 52%;
+    right: 2%;
+    width: 52%;
+    max-width: 620px;
+    justify-content: flex-end;
+    z-index: 4;
+  }
+
+  .story-scroller-component.park-top-left {
+    position: absolute;
+    top: 38%;
+    left: 2%;
+    width: 52%;
+    max-width: 620px;
+    justify-content: flex-start;
+    z-index: 2;
+  }
+
+  .story-scroller-component.park-top-right img,
+  .story-scroller-component.park-top-left img {
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    height: auto;
+  }
+
+  /* --- Cars-converge layout --- */
+  .story-slide.cars-converge {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .story-slide.cars-converge .text-block {
+    position: absolute;
+    top: 8%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 70%;
+    max-width: 860px;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .story-slide.cars-converge .text-block.default p {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.5;
   }
   
   /* --- Layouts --- */

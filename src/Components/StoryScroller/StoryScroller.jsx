@@ -25,6 +25,31 @@ const getAnimation = (animationType, scrollYProgress, start, end, direction) => 
                 scale: useTransform(scrollYProgress, [start, end], [0.5, 2.5]),
                 opacity: useTransform(scrollYProgress, [start, inEnd, end - (slideDuration*0.1), end], [0, 1, 1, 0])
             };
+        case 'drive-and-grow-rtl':
+            return {
+                x: useTransform(scrollYProgress, [start, end], ['150%', '-50%']),
+                scale: useTransform(scrollYProgress, [start, end], [0.5, 2.5]),
+                opacity: useTransform(scrollYProgress, [start, inEnd, end - (slideDuration*0.1), end], [0, 1, 1, 0])
+            };
+        case 'park-top-right':
+            // comes from LEFT → parks → pauses during text → exits RIGHT, growing in scale
+            return {
+                x: useTransform(scrollYProgress,
+                    [start, start + slideDuration * 0.35, start + slideDuration * 0.82, end],
+                    ['-180%', '0%', '0%', '260%']),
+                scale: useTransform(scrollYProgress,
+                    [start + slideDuration * 0.82, end],
+                    [1, 2.4]),
+                opacity: useTransform(scrollYProgress, [start, start + slideDuration * 0.18], [0, 1])
+            };
+        case 'park-top-left':
+            // comes from RIGHT → parks → pauses during text → exits LEFT, same scale
+            return {
+                x: useTransform(scrollYProgress,
+                    [start, start + slideDuration * 0.35, start + slideDuration * 0.82, end],
+                    ['180%', '0%', '0%', '-260%']),
+                opacity: useTransform(scrollYProgress, [start, start + slideDuration * 0.18], [0, 1])
+            };
         case 'slide-in-left':
             return {
                 x: useTransform(scrollYProgress, [start, inEnd, outStart, end], ['-50%', '0%', '0%', '-50%']),
@@ -147,6 +172,18 @@ const StoryScroller = ({ story }) => {
                             [0, 1, 1, 0]
                         );
 
+                        // cars-converge text: fades in after cars park, fades out before cars exit
+                        const carTextOpacity = useTransform(
+                            scrollYProgress,
+                            [
+                                start + slideDuration * 0.35,
+                                start + slideDuration * 0.50,
+                                start + slideDuration * 0.72,
+                                start + slideDuration * 0.82,
+                            ],
+                            [0, 1, 1, 0]
+                        );
+
                                                     return (
                                 <div key={index} className={`story-slide ${item.layout || 'center'}`}>
                                     {item.layout === 'side-by-side' ? (
@@ -154,14 +191,27 @@ const StoryScroller = ({ story }) => {
                                             <div className="story-content">
                                                 {item.textBlock && <TextBlock textBlock={item.textBlock} opacity={opacity} />}
                                             </div>
-                                            {item.component && 
-                                                <CustomComponent 
-                                                    component={item.component} 
+                                            {item.component &&
+                                                <CustomComponent
+                                                    component={item.component}
                                                     scrollYProgress={scrollYProgress}
                                                     start={start}
                                                     end={end}
                                                 />
                                             }
+                                        </>
+                                    ) : item.layout === 'cars-converge' ? (
+                                        <>
+                                            {item.components && item.components.map((comp, ci) => (
+                                                <CustomComponent
+                                                    key={ci}
+                                                    component={comp}
+                                                    scrollYProgress={scrollYProgress}
+                                                    start={start}
+                                                    end={end}
+                                                />
+                                            ))}
+                                            {item.textBlock && <TextBlock textBlock={item.textBlock} opacity={carTextOpacity} />}
                                         </>
                                     ) : (
                                         <>
@@ -169,9 +219,9 @@ const StoryScroller = ({ story }) => {
                                                 {item.text && <motion.p className="default-text" style={{ opacity }}>{item.text}</motion.p>}
                                                 {item.textBlock && <TextBlock textBlock={item.textBlock} opacity={opacity} />}
                                             </div>
-                                            {item.component && 
-                                                <CustomComponent 
-                                                    component={item.component} 
+                                            {item.component &&
+                                                <CustomComponent
+                                                    component={item.component}
                                                     scrollYProgress={scrollYProgress}
                                                     start={start}
                                                     end={end}

@@ -19,6 +19,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 100vh;
     color: var(--text-primary);
     text-align: center;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -27,6 +28,7 @@ main {
 main.has-header {
   padding-top: var(--header-height);
 }
+
 
 a, a:link, a:visited, a:focus, a:hover, a:active {
   text-decoration: none;
