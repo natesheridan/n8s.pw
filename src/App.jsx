@@ -6,6 +6,7 @@ import Contact from './Pages/Contact/Contact.jsx'
 import Home from './Pages/Home/Home.jsx'
 import Projects from './Pages/Projects/Projects.jsx'
 import WhiteboardPage from './Pages/Whiteboard/WhiteboardPage.jsx'
+import Resume from './Pages/Resume/Resume.jsx'
 import Header from './Components/Header/Header.jsx'
 import Footer from './Components/Footer/Footer.jsx'
 import ScrollArrow from './Components/ScrollArrow/ScrollArrow.jsx';
@@ -38,6 +39,11 @@ const PAGE_META = {
     description: 'Hire Nate Sheridan (n8s) for frontend development, React engineering, or MVP work in Denver, CO or remotely. Fast, honest, and ships clean code.',
     canonical: 'https://n8s.pw/contact',
   },
+  '/resume': {
+    title: 'Resume — Nate Sheridan | n8s.pw',
+    description: "Nate Sheridan's resume — experience, skillset, and educational projects. Viewable on-screen or exportable as a PDF.",
+    canonical: 'https://n8s.pw/resume',
+  },
 };
 
 function setMeta(name, content, attr = 'name') {
@@ -64,6 +70,7 @@ function App() {
   const location = useLocation();
   const hasHeader = ['/projects', '/about', '/contact'].includes(location.pathname);
   const isWhiteboard = location.pathname === '/whiteboard';
+  const isResume = location.pathname === '/resume';
 
   useEffect(() => {
     const meta = PAGE_META[location.pathname] || PAGE_META['/'];
@@ -82,6 +89,16 @@ function App() {
       <AnimatePresence mode="wait">
         <Switch location={location} key={location.pathname}>
           <Route exact path='/whiteboard' component={WhiteboardPage} />
+        </Switch>
+      </AnimatePresence>
+    );
+  }
+
+  if (isResume) {
+    return (
+      <AnimatePresence mode="wait">
+        <Switch location={location} key={location.pathname}>
+          <Route exact path='/resume' component={Resume} />
         </Switch>
       </AnimatePresence>
     );

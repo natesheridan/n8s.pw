@@ -60,7 +60,7 @@ const Home = () => {
                     </motion.div>
 
                     <motion.div initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.5 }}>
-                        <SocialButton label={"Resume"} to={"https://n8s.pw/assets/ResumeNoPhone.pdf"} size={50} faIcon={"FaScroll"}/>
+                        <SocialButton label={"Resume"} to={"/resume"} size={50} faIcon={"FaScroll"}/>
                     </motion.div>
                 </div>
                 

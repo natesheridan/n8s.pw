@@ -1,50 +1,125 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaSearch, FaThLarge, FaBars } from 'react-icons/fa';
 import './Projects.css';
+
+// How much of a project's text shows at rest before hover reveals the rest.
+const PREVIEW_LENGTH = 150;
+// Characters revealed per typing tick — chunked so long descriptions don't
+// take forever to finish typing out.
+const CHARS_PER_TICK = 3;
+const TICK_MS = 16;
+
+const ProjectTile = ({ project, hasLink, accent, index }) => {
+    const [isHovered, setIsHovered] = useState(false);
+    const [typedExtra, setTypedExtra] = useState('');
+    const intervalRef = useRef(null);
+
+    const needsReveal = project.text.length > PREVIEW_LENGTH;
+    const preview = needsReveal
+        ? project.text.slice(0, PREVIEW_LENGTH).replace(/\s+\S*$/, '')
+        : project.text;
+    const remainder = needsReveal ? project.text.slice(preview.length) : '';
+
+    const clearTyping = () => {
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+        }
+    };
+
+    const handleEnter = () => {
+        setIsHovered(true);
+        if (!needsReveal) return;
+        clearTyping();
+        intervalRef.current = setInterval(() => {
+            setTypedExtra((current) => {
+                if (current.length >= remainder.length) {
+                    clearTyping();
+                    return current;
+                }
+                return remainder.slice(0, current.length + CHARS_PER_TICK);
+            });
+        }, TICK_MS);
+    };
+
+    const handleLeave = () => {
+        setIsHovered(false);
+        clearTyping();
+        setTypedExtra('');
+    };
+
+    useEffect(() => () => clearTyping(), []);
+
+    const isTyping = isHovered && needsReveal && typedExtra.length < remainder.length;
+    const displayText = isHovered
+        ? preview + typedExtra
+        : preview + (needsReveal ? '…' : '');
+
+    const textBlock = (
+        <p className="project-text">
+            {displayText}
+            {isTyping && <span className="typing-cursor" />}
+        </p>
+    );
+
+    return (
+        <motion.div
+            layout
+            className={`project-tile ${hasLink ? 'has-link' : 'no-link'}`}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.4) }}
+            whileHover={hasLink ? { y: -6 } : undefined}
+            onMouseEnter={handleEnter}
+            onMouseLeave={handleLeave}
+            onClick={() => {
+                if (hasLink) {
+                    window.open(project.link, '_blank', 'noopener,noreferrer');
+                }
+            }}
+            style={{ '--accent': accent }}
+        >
+            <span className="project-icon-watermark" aria-hidden="true">{project.icon}</span>
+            <h3 className="project-title">{project.header}</h3>
+            {textBlock}
+            {!hasLink && <span className="project-no-link">No link yet</span>}
+        </motion.div>
+    );
+};
 
 // API endpoint for projects
 const AUTOFOCUS_API_URL = 'https://www.autofoc.us/api/nate/projects';
 
-// Color mapping for sticky note colors
+// Subtle accent tint per project (used as a thin edge + icon glow, not a full
+// background wash — keeps each card feeling distinct without breaking the
+// site's dark theme).
 const colorMap = {
-    yellow: '#f7dc6f',
-    blue: '#85c1e9', 
-    green: '#82e5aa',
-    pink: '#f8c2c0',
-    purple: '#d2b4de',
-    orange: '#f4d03f',
-    red: '#ec7063'
+    yellow: '#f2c94c',
+    blue: '#6b9fff',
+    green: '#6ee7a0',
+    pink: '#f6a6c1',
+    purple: '#b39ddb',
+    orange: '#f2994a',
+    red: '#f16a6a'
 };
 
-const filters = {
-    sort: ["Latest", "Most Popular", "Alphabetical"],
-    timeframe: ["All Time", "This Year", "This Month"]
-};
+const sortOptions = ['Latest', 'Most Popular', 'Alphabetical'];
 
 const pageVariants = {
-    initial: {
-        opacity: 0,
-        y: "-100vh"
-    },
-    in: {
-        opacity: 1,
-        y: 0
-    },
-    out: {
-        opacity: 0,
-        y: "100vh"
-    }
+    initial: { opacity: 0, y: '-100vh' },
+    in: { opacity: 1, y: 0 },
+    out: { opacity: 0, y: '100vh' }
 };
 
 const pageTransition = {
-    type: "tween",
-    ease: "anticipate",
+    type: 'tween',
+    ease: 'anticipate',
     duration: 1.2
 };
 
 const Projects = () => {
     const [selectedSort, setSelectedSort] = useState('Latest');
-    const [selectedTimeframe, setSelectedTimeframe] = useState('All Time');
     const [projects, setProjects] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
@@ -52,28 +127,22 @@ const Projects = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Fetch projects from API
     const fetchProjects = async () => {
         try {
             setLoading(true);
             setError(null);
-            console.log('🌐 Fetching projects from autofoc.us API...');
-            
+
             const response = await fetch(AUTOFOCUS_API_URL, {
                 method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
+                headers: { 'Content-Type': 'application/json' }
             });
-            
+
             if (!response.ok) {
                 throw new Error(`API response not ok: ${response.status}`);
             }
-            
+
             const data = await response.json();
-            console.log('📥 Received projects from API:', data.length, 'projects');
-            
-            // Use API data directly - minimal transformation
+
             const transformedProjects = data.map((item) => ({
                 id: item.id,
                 header: item.content.header || 'Untitled',
@@ -88,23 +157,19 @@ const Projects = () => {
                 interactionCount: item.interaction_count || 0,
                 orderIndex: item.order_index || 0
             }));
-            
+
             setProjects(transformedProjects);
             setLoading(false);
-            
-        } catch (error) {
-            console.error('❌ Error fetching projects from API:', error);
-            setError(error.message);
+        } catch (err) {
+            setError(err.message);
             setLoading(false);
         }
     };
 
-    // Load projects on component mount
     useEffect(() => {
         fetchProjects();
     }, []);
 
-    // Filter and sort projects
     useEffect(() => {
         if (projects.length === 0) {
             setFilteredProjects([]);
@@ -113,15 +178,13 @@ const Projects = () => {
 
         let filtered = [...projects];
 
-        // Search filter
         if (searchQuery) {
-            filtered = filtered.filter(project => 
+            filtered = filtered.filter(project =>
                 project.header.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 project.text.toLowerCase().includes(searchQuery.toLowerCase())
             );
         }
 
-        // Sort
         switch (selectedSort) {
             case 'Latest':
                 filtered.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -143,10 +206,9 @@ const Projects = () => {
         setFilteredProjects(filtered);
     }, [projects, selectedSort, searchQuery]);
 
-    // Loading state
     if (loading) {
         return (
-            <motion.section 
+            <motion.section
                 className="projects-section"
                 initial="initial"
                 animate="in"
@@ -156,17 +218,16 @@ const Projects = () => {
             >
                 <div className="projects-loading">
                     <div className="loading-spinner"></div>
-                    <h2>Loading Projects...</h2>
-                    <p>Fetching latest data from autofoc.us</p>
+                    <h2>Loading projects…</h2>
+                    <p>Pulling the latest from autofoc.us</p>
                 </div>
             </motion.section>
         );
     }
 
-    // Error state
     if (error) {
         return (
-            <motion.section 
+            <motion.section
                 className="projects-section"
                 initial="initial"
                 animate="in"
@@ -175,11 +236,10 @@ const Projects = () => {
                 transition={pageTransition}
             >
                 <div className="projects-error">
-                    <div className="error-icon">⚠️</div>
-                    <h2>Failed to Load Projects</h2>
-                    <p>Error: {error}</p>
-                    <button onClick={fetchProjects} className="retry-button">
-                        Try Again
+                    <h2>Couldn't load projects</h2>
+                    <p>{error}</p>
+                    <button onClick={fetchProjects} className="projects-retry-button">
+                        Try again
                     </button>
                 </div>
             </motion.section>
@@ -187,7 +247,7 @@ const Projects = () => {
     }
 
     return (
-        <motion.section 
+        <motion.section
             className="projects-section"
             initial="initial"
             animate="in"
@@ -195,124 +255,97 @@ const Projects = () => {
             variants={pageVariants}
             transition={pageTransition}
         >
-            <motion.div 
+            <motion.div
                 className="projects-header"
-                initial={{ opacity: 0, y: -50 }}
+                initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <h1>Projects</h1>
-                <div className="search-bar">
-                    <input
-                        type="text"
-                        placeholder="Search projects..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                </div>
-                <div className="filters">
-                    <select 
-                        value={selectedSort}
-                        onChange={(e) => setSelectedSort(e.target.value)}
-                    >
-                        {filters.sort.map((sort, index) => (
-                            <option key={index} value={sort}>{sort}</option>
-                        ))}
-                    </select>
-                    <select
-                        value={selectedTimeframe}
-                        onChange={(e) => setSelectedTimeframe(e.target.value)}
-                    >
-                        {filters.timeframe.map((time, index) => (
-                            <option key={index} value={time}>{time}</option>
-                        ))}
-                    </select>
-                    <button 
-                        className="view-toggle"
-                        onClick={() => setIsGridView(!isGridView)}
-                    >
-                        {isGridView ? 'List View' : 'Grid View'}
-                    </button>
+                <p className="projects-kicker">~/projects</p>
+                <h1>Things I've built</h1>
+                <p className="projects-subhead">Side projects, experiments, and things that mostly work.</p>
+
+                <div className="projects-controls">
+                    <div className="search-bar">
+                        <FaSearch className="search-icon" aria-hidden="true" />
+                        <input
+                            type="text"
+                            placeholder="Search projects…"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="controls-right">
+                        <div className="sort-pills" role="tablist" aria-label="Sort projects">
+                            {sortOptions.map((option) => (
+                                <button
+                                    key={option}
+                                    type="button"
+                                    role="tab"
+                                    aria-selected={selectedSort === option}
+                                    className={`sort-pill ${selectedSort === option ? 'active' : ''}`}
+                                    onClick={() => setSelectedSort(option)}
+                                >
+                                    {option}
+                                </button>
+                            ))}
+                        </div>
+
+                        <div className="view-toggle" role="group" aria-label="Layout">
+                            <button
+                                type="button"
+                                aria-label="Grid view"
+                                aria-pressed={isGridView}
+                                className={isGridView ? 'active' : ''}
+                                onClick={() => setIsGridView(true)}
+                            >
+                                <FaThLarge />
+                            </button>
+                            <button
+                                type="button"
+                                aria-label="List view"
+                                aria-pressed={!isGridView}
+                                className={!isGridView ? 'active' : ''}
+                                onClick={() => setIsGridView(false)}
+                            >
+                                <FaBars />
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </motion.div>
 
             <AnimatePresence>
-                <motion.div 
+                <motion.div
                     className={`projects-container ${isGridView ? 'grid-view' : 'list-view'}`}
                     initial="hidden"
                     animate="visible"
                     variants={{
                         hidden: { opacity: 0 },
-                        visible: {
-                            opacity: 1,
-                            transition: {
-                                staggerChildren: 0.1
-                            }
-                        }
+                        visible: { opacity: 1, transition: { staggerChildren: 0.06 } }
                     }}
                 >
                     {filteredProjects.length === 0 ? (
-                        <div style={{
-                            gridColumn: '1 / -1',
-                            textAlign: 'center',
-                            padding: '60px 20px',
-                            color: 'rgba(255,255,255,0.7)'
-                        }}>
-                            <p style={{ fontSize: '1.2em', marginBottom: '10px' }}>No projects found</p>
-                            <p style={{ fontSize: '0.9em' }}>
+                        <div className="projects-empty">
+                            <p>No projects found</p>
+                            <p className="projects-empty-sub">
                                 {searchQuery ? 'Try adjusting your search' : 'Projects will appear here once loaded'}
                             </p>
                         </div>
                     ) : (
                         filteredProjects.map((project, index) => {
                             const hasLink = project.link && project.link.trim() !== '';
-                            const cardColor = colorMap[project.color] || colorMap.yellow;
-                            
+                            const accent = colorMap[project.color] || colorMap.yellow;
+
                             return (
-                                <motion.div
+                                <ProjectTile
                                     key={project.id}
-                                    className={`sticky-note-card ${hasLink ? 'has-link' : 'no-link'}`}
-                                    initial={{ opacity: 0, y: 50, rotate: -2 }}
-                                    animate={{ opacity: 1, y: 0, rotate: 0 }}
-                                    transition={{ 
-                                        duration: 0.5,
-                                        delay: index * 0.1,
-                                        type: "spring",
-                                        stiffness: 100
-                                    }}
-                                    whileHover={{ 
-                                        scale: 1.05,
-                                        rotate: hasLink ? 2 : 0,
-                                        zIndex: 10
-                                    }}
-                                    onClick={() => {
-                                        if (hasLink) {
-                                            window.open(project.link, '_blank', 'noopener,noreferrer');
-                                        }
-                                    }}
-                                    style={{
-                                        '--card-color': cardColor,
-                                        cursor: hasLink ? 'pointer' : 'default'
-                                    }}
-                                >
-                                    <div className="sticky-note-header">
-                                        <span className="sticky-note-icon">{project.icon}</span>
-                                        <h3 className="sticky-note-title">{project.header}</h3>
-                                    </div>
-                                    <div className="sticky-note-content">
-                                        <p>{project.text}</p>
-                                    </div>
-                                    {hasLink && (
-                                        <div className="sticky-note-link-indicator">
-                                            <span>Click to visit →</span>
-                                        </div>
-                                    )}
-                                    {!hasLink && (
-                                        <div className="sticky-note-no-link-indicator">
-                                            <span>No link available</span>
-                                        </div>
-                                    )}
-                                </motion.div>
+                                    project={project}
+                                    hasLink={hasLink}
+                                    accent={accent}
+                                    index={index}
+                                />
                             );
                         })
                     )}

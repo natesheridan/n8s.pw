@@ -425,7 +425,7 @@ const AboutData2 = [
     header: "I'm Looking for My Next Challenge.",
     subheader: "If you made it this far.. wow, you must really like scrolling. Let's work together!",
     link: {
-      url: 'https://www.n8s.pw/assets/ResumeNoPhone.pdf',
+      url: '/resume',
       title: 'View My Resume',
     },
     links: [

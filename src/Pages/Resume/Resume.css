@@ -1,0 +1,420 @@
+.resume-page {
+    min-height: 100vh;
+    background: #0a0a1a;
+    background-image: radial-gradient(ellipse at top, rgba(107, 115, 255, 0.16) 0%, transparent 55%);
+    padding: 2.5rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #e8e8f0;
+}
+
+.resume-toolbar {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.resume-back-link {
+    color: #a8adcf;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.resume-back-link:hover {
+    color: #f0f0f7;
+}
+
+.resume-print-button {
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: 1px solid rgba(107, 115, 255, 0.5);
+    background: rgba(107, 115, 255, 0.18);
+    color: #f0f0f7;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.resume-print-button:hover {
+    background: rgba(107, 115, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* --- Sheet --- */
+.resume-sheet {
+    width: 100%;
+    max-width: 1000px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 1.5rem 2rem;
+}
+
+.resume-col-main {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.resume-col-side {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.resume-footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* --- Shared card look, matches Projects tiles --- */
+.resume-header,
+.resume-section {
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.75rem;
+    backdrop-filter: blur(12px);
+    margin: 0;
+}
+
+.resume-col-side .resume-section {
+    text-align: center;
+}
+
+/* --- Header --- */
+.resume-name {
+    font-family: 'Yellowtail', cursive;
+    font-size: 3.4rem;
+    font-weight: 400;
+    color: #b8bfff;
+    margin: 0;
+    line-height: 1;
+    text-shadow: 0 0 24px rgba(107, 115, 255, 0.35);
+}
+
+.resume-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    color: #8890c0;
+    margin: 0.4rem 0 1rem;
+    text-transform: uppercase;
+}
+
+.resume-summary {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: #c4c8e4;
+    margin: 0;
+}
+
+.resume-tagline {
+    font-style: italic;
+    color: #e8e8f0;
+}
+
+.emphasis {
+    font-weight: 700;
+    color: #b8bfff;
+    font-style: normal;
+}
+
+/* --- Section titles --- */
+.resume-section-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #b8bfff;
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(107, 115, 255, 0.25);
+}
+
+/* --- Experience --- */
+.resume-job {
+    margin-bottom: 1.25rem;
+}
+
+.resume-job:last-child {
+    margin-bottom: 0;
+}
+
+.resume-job-title {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.resume-company {
+    font-weight: 700;
+    color: #f0f0f7;
+}
+
+.resume-role {
+    font-style: italic;
+    color: #9198c4;
+}
+
+.resume-dates {
+    margin: 0.1rem 0 0.5rem;
+    font-size: 0.8rem;
+    color: #6d75a8;
+    font-family: 'Fira Mono', monospace;
+}
+
+.resume-bullets {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: #c4c8e4;
+}
+
+.resume-bullets li {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 0.2rem;
+}
+
+.resume-bullets li::marker {
+    color: #6b73ff;
+}
+
+.resume-tech-stack {
+    margin: 0.4rem 0 0 1.2rem;
+    font-size: 0.85rem;
+    color: #8890c0;
+}
+
+/* --- Educational Projects --- */
+.resume-projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.resume-project-name {
+    font-weight: 700;
+    margin: 0;
+    font-size: 0.92rem;
+    color: #f0f0f7;
+}
+
+.resume-project-date {
+    margin: 0 0 0.5rem;
+    font-size: 0.78rem;
+    color: #6d75a8;
+    font-family: 'Fira Mono', monospace;
+}
+
+.resume-project-desc {
+    margin: 0 0 0.35rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: #c4c8e4;
+}
+
+.resume-project-tech {
+    font-size: 0.82rem;
+    margin: 0.5rem 0;
+    color: #9198c4;
+}
+
+.resume-project-tech strong {
+    color: #c4c8e4;
+}
+
+.resume-project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #b8bfff;
+    margin-top: 0.3rem;
+}
+
+.resume-project-link:hover {
+    color: #d3d6ff;
+}
+
+/* --- Sidebar --- */
+.resume-contact-line {
+    display: block;
+    margin: 0 0 0.4rem;
+    font-size: 0.9rem;
+    color: #c4c8e4;
+}
+
+.resume-link {
+    color: #b8bfff;
+}
+
+.resume-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.8rem;
+    font-size: 1.3rem;
+    color: #c4c8e4;
+}
+
+.resume-social-icons a:hover {
+    color: #b8bfff;
+}
+
+.resume-pill-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.resume-pill-list li {
+    font-size: 0.78rem;
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: rgba(107, 115, 255, 0.12);
+    border: 1px solid rgba(107, 115, 255, 0.25);
+    color: #d3d6ff;
+    white-space: nowrap;
+}
+
+.resume-school {
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    font-size: 0.92rem;
+    color: #f0f0f7;
+}
+
+.resume-program {
+    font-size: 0.82rem;
+    color: #9198c4;
+    margin: 0 0 0.6rem;
+}
+
+.resume-edu-range {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    font-family: 'Fira Mono', monospace;
+    color: #b8bfff;
+    margin: 0;
+}
+
+.resume-edu-arrow {
+    opacity: 0.6;
+}
+
+/* --- Footer signature --- */
+.resume-footer-name {
+    font-family: 'Yellowtail', cursive;
+    font-size: 1.3rem;
+    color: #8890c0;
+    margin: 0;
+}
+
+.resume-footer-link {
+    font-size: 0.82rem;
+    color: #6d75a8;
+}
+
+/* --- Print ---
+   Grid layouts don't paginate reliably in Chrome's print engine (content
+   past the first page can just vanish), so print gets its own single-column
+   flow instead of the on-screen two-column grid. Colors carry over via
+   print-color-adjust so the exported PDF matches the on-screen look rather
+   than reverting to a plain white page. */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    html, body {
+        background: #0a0a1a;
+    }
+
+    .resume-page {
+        background: #0a0a1a;
+        padding: 0.3in;
+        min-height: 0;
+    }
+
+    .resume-sheet {
+        display: block;
+        max-width: 100%;
+    }
+
+    .resume-col-main,
+    .resume-col-side {
+        display: block;
+    }
+
+    .resume-header,
+    .resume-section {
+        break-inside: avoid;
+        margin-bottom: 0.9rem;
+        backdrop-filter: none;
+    }
+
+    .resume-job {
+        break-inside: avoid;
+    }
+
+    .resume-projects {
+        display: block;
+    }
+
+    .resume-project {
+        break-inside: avoid;
+        margin-bottom: 0.9rem;
+    }
+
+    @page {
+        size: letter;
+        margin: 0.4in;
+    }
+}
+
+/* --- Responsive --- */
+@media (max-width: 850px) {
+    .resume-sheet {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-col-side {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .resume-name {
+        font-size: 2.6rem;
+    }
+
+    .resume-projects {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-header,
+    .resume-section {
+        padding: 1.25rem;
+    }
+}
