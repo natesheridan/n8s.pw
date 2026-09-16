@@ -1,12 +1,12 @@
 .story-scroller-container {
-    height: 600vh; /* Increased to accommodate more content */
     position: relative;
   }
-  
+
   .story-scroller-sticky {
     position: sticky;
     top: 0;
     height: 100vh;
+    height: 100dvh; /* actual visible viewport on mobile, not the address-bar-inclusive one */
     overflow: hidden;
   }
   
@@ -71,11 +71,23 @@
     align-items: center;
   }
 
-  .story-scroller-component img {
+  .story-scroller-component img,
+  .story-scroller-component video {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+
+  /* Mobile app screenshots — cap height so a tall phone capture never
+     dominates the slide, and frame it a bit more deliberately */
+  .story-scroller-component img.screenshot-image,
+  .story-scroller-component video.screenshot-image {
+    max-height: 65vh;
+    max-height: 65dvh;
+    width: auto;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.15);
   }
 
   .story-scroller-component.drive-and-grow img,
@@ -196,29 +208,139 @@
   
   /* --- Responsive --- */
   @media (max-width: 768px) {
+    /* Hero / default text — reduce from 3rem to 1.3rem */
     .default-text {
-      font-size: 2rem;
+      font-size: 1.3rem;
+      padding: 1rem;
     }
-  
+
+    /* Side-by-side slides — stack vertically, full width */
     .side-by-side {
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: center;
       text-align: center !important;
-      width: 90%;
-      gap: 2rem;
+      width: 95%;
+      gap: 0.75rem;
     }
-  
+
     .side-by-side .story-content,
     .side-by-side .text-block,
     .side-by-side .story-scroller-component {
       text-align: center !important;
       width: 100%;
-      /* Reset flex properties */
       flex: none;
+      padding: 0.5rem;
     }
-  
+
+    /* Text blocks — much tighter on mobile */
+    .text-block {
+      padding: 0.75rem;
+    }
+
+    .text-block.default p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Quotes — shrink significantly */
     .text-block.quote p {
-      font-size: 1.8rem;
+      font-size: 1.1rem;
+      border-left-width: 3px;
+      padding-left: 1rem;
+    }
+
+    /* Cars-converge slide — shrink text */
+    .story-slide.cars-converge .text-block.default p {
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+
+    /* Prevent absolutely-positioned component children from escaping viewport */
+    .story-slide {
+      overflow: hidden;
+    }
+
+    /* Scroll-driven images — scale to fit viewport width */
+    .story-slide.center .story-scroller-component {
+      width: 60%;
+      max-width: 280px;
+    }
+
+    .story-scroller-component.park-top-right,
+    .story-scroller-component.park-top-left {
+      width: 48%;
+      max-width: 48%;
+      top: auto;
+      bottom: 10%;
+    }
+
+    .story-scroller-component.park-top-right {
+      right: 1%;
+    }
+
+    .story-scroller-component.park-top-left {
+      left: 1%;
+    }
+
+    /* Drive-by images — reduce to fit */
+    .story-scroller-component.drive-and-grow,
+    .story-scroller-component.drive-and-grow-rtl {
+      width: 30%;
+      max-width: 160px;
+    }
+
+    .story-scroller-component.drive-by {
+      width: 25%;
+      max-width: 130px;
+    }
+
+    /* Slide-in component images — constrain to viewport */
+    .side-by-side .story-scroller-component img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .story-scroller-component img.screenshot-image,
+    .story-scroller-component video.screenshot-image {
+      max-height: 42vh;
+      max-height: 42dvh;
+    }
+  }
+
+  /* --- Small phones (≤ 390px) --- */
+  @media (max-width: 390px) {
+    .default-text {
+      font-size: 1.1rem;
+      padding: 0.75rem;
+    }
+
+    .text-block.default p {
+      font-size: 0.85rem;
+    }
+
+    .text-block.quote p {
+      font-size: 0.95rem;
+    }
+
+    .story-slide.cars-converge .text-block.default p {
+      font-size: 0.95rem;
+    }
+
+    .side-by-side {
+      width: 98%;
+      gap: 0.5rem;
+    }
+
+    .side-by-side .story-content,
+    .side-by-side .story-scroller-component {
+      padding: 0.25rem;
+    }
+
+    .story-scroller-component.park-top-right,
+    .story-scroller-component.park-top-left {
+      width: 45%;
+      max-width: 45%;
+      bottom: 5%;
     }
   }
   

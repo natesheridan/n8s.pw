@@ -58,3 +58,23 @@
 .squiggly-underline.active {
     opacity: 1;
 }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .build-break-animation {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+    }
+
+    .word {
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 390px) {
+    .build-break-animation {
+        font-size: 1rem;
+        padding: 0.4rem;
+    }
+}

@@ -147,6 +147,93 @@
   border-color: rgba(255, 255, 255, 0.9);
 }
 
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .story-section {
+    padding: 2rem 1rem;
+  }
+
+  .story-section h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .story-section h2 {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    padding: 0 0.5rem;
+  }
+
+  .story-section p {
+    font-size: 0.9rem;
+    max-width: 100%;
+    padding: 0 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .layout-split {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .layout-split .layout-text {
+    padding-right: 0;
+    padding: 0 0.5rem;
+  }
+
+  .layout-split.reversed {
+    flex-direction: column;
+  }
+
+  .layout-split.reversed .layout-text {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .layout-center {
+    padding: 1rem 0.5rem;
+  }
+
+  .layout-split-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .split-left h2,
+  .split-right h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .side-image {
+    max-width: 280px;
+  }
+
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* --- Small phones (≤ 390px) --- */
+@media (max-width: 390px) {
+  .story-section {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .story-section h1 {
+    font-size: 1.3rem;
+  }
+
+  .story-section h2 {
+    font-size: 0.9rem;
+  }
+
+  .story-section p {
+    font-size: 0.85rem;
+  }
+}
+
 .section-link-group {
   display: flex;
   flex-direction: column;

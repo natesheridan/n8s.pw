@@ -77,7 +77,7 @@ const beyondTheScreenStory = [
     component: {
       name: 'Image',
       props: {
-        src: 'assets/4runner_crop.png',
+        src: '/assets/4runner_crop.webp',
         alt: 'A gold Toyota 4Runner modified for overlanding.',
         animationType: 'drive-and-grow',
       }
@@ -87,13 +87,13 @@ const beyondTheScreenStory = [
   {
     layout: 'side-by-side',
     textBlock: {
-      text: "My 2003 4runner is a overengineered home on wheels, with solar, dual battery, water storage, kitchen, and sleep",
+      text: "My 2003 4Runner is an overengineered home on wheels, with solar, dual battery, water storage, a kitchen, and a place to sleep.",
       align: 'right'
     },
     component: {
       name: 'Image',
       props: {
-        src: 'assets/gld4rnr_side.png',
+        src: '/assets/gld4rnr_side.webp',
         alt: 'A side view of the customized Toyota 4Runner, showing its overlanding gear.',
         animationType: 'slide-in-left',
         align: 'left'
@@ -102,11 +102,11 @@ const beyondTheScreenStory = [
     background: 'https://images.pexels.com/photos/35843152/pexels-photo-35843152.jpeg?_gl=1*t7nrkt*_ga*NzA5NDg2ODE0LjE3NzU3OTg4MzY.*_ga_8JE65Q40S6*czE3NzU3OTg4MzYkbzEkZzEkdDE3NzU3OTg4NTkkajM3JGwwJGgw',
   },
   {
-    text: "And then.. owning a turbocharged Subaru is a special kind of passion—equal parts exhilaration and (un)expected repair bills.",
+    text: "And then... owning a turbocharged Subaru is a special kind of passion—equal parts exhilaration and (un)expected repair bills.",
     component: {
       name: 'Image',
       props: {
-        src: 'assets/cofxt_crop.png',
+        src: '/assets/cofxt_crop.webp',
         alt: 'A Subaru Forester XT driving.',
         animationType: 'drive-and-grow-rtl',
       }
@@ -116,13 +116,13 @@ const beyondTheScreenStory = [
   {
     layout: 'side-by-side',
     textBlock: {
-      text: "My 2004 Forester XT is just proof that all the right STI go fast parts, E85 and a short geared 5 speed is some of the most fun you can have driving these. But damn these things love oil..",
+      text: "My 2004 Forester XT is proof that the right STI go-fast parts, E85, and a short-geared 5-speed make for one of the most fun cars you can drive. But damn, these things love oil.",
       align: 'left'
     },
     component: {
       name: 'Image',
       props: {
-        src: 'assets/cofxt_side.png',
+        src: '/assets/cofxt_side.webp',
         alt: 'A side view of the Subaru Forester XT.',
         animationType: 'slide-in-right',
         align: 'right'
@@ -140,7 +140,7 @@ const beyondTheScreenStory = [
       {
         name: 'Image',
         props: {
-          src: 'assets/4runner_crop.png',
+          src: '/assets/4runner_crop.webp',
           alt: 'Gold Toyota 4Runner parked at top right.',
           animationType: 'park-top-right',
         }
@@ -148,7 +148,7 @@ const beyondTheScreenStory = [
       {
         name: 'Image',
         props: {
-          src: 'assets/cofxt_crop.png',
+          src: '/assets/cofxt_crop.webp',
           alt: 'Silver Subaru Forester XT parked at top left.',
           animationType: 'park-top-left',
         }
@@ -189,7 +189,7 @@ const autofocusStory = [
         component: {
           name: 'Image',
           props: {
-            src: 'assets/autofocus_mobile.jpg',
+            src: '/assets/autofocus_mobile.jpg',
             alt: 'A mobile screenshot of the Autofoc.us profile page interface.',
             animationType: 'slide-in-right',
             align: 'right',
@@ -227,7 +227,7 @@ const secondsummitStory = [
         component: {
             name: 'Image',
             props: {
-                src: 'assets/secondsummitdemo.gif',
+                src: '/assets/secondsummitdemo.mp4',
                 alt: 'A walkthrough demo of the Second Summit app interface.',
                 animationType: 'slide-in-left',
                 align: 'left',
@@ -265,7 +265,7 @@ const localedgerStory = [
         component: {
             name: 'Image',
             props: {
-                src: 'assets/localedger_mobile.jpg',
+                src: '/assets/localedger_mobile.jpg',
                 alt: 'A mobile screenshot of the LocaLabor income tracking dashboard.',
                 animationType: 'slide-in-right',
                 align: 'right',
@@ -291,7 +291,7 @@ const localedgerStory = [
 const valetraStory = [
     {
         text: "Running a valet operation is controlled chaos. I built the software to tame it.",
-        background: './assets/valetra_bg.jpg',
+        background: '/assets/valetra_bg.webp',
     },
     {
         layout: 'side-by-side',
@@ -302,7 +302,7 @@ const valetraStory = [
         component: {
             name: 'Image',
             props: {
-                src: 'assets/valetra_mobile.jpg',
+                src: '/assets/valetra_mobile.jpg',
                 alt: 'A mobile screenshot of the Valetra valet management dashboard.',
                 animationType: 'slide-in-left',
                 align: 'left',
@@ -317,7 +317,7 @@ const valetraStory = [
             text: '"From ticket to car key—every touchpoint tracked in real time."',
             style: 'quote'
         },
-        background: './assets/valetra_bg.jpg',
+        background: '/assets/valetra_bg.webp',
     },
 ];
 
@@ -378,6 +378,27 @@ const AboutData2 = [
     layout: 'fullscreen',
     story: beyondTheScreenStory,
   },
+  // Parked for later — plan is to reuse this ImageSwiper carousel format for the
+  // Projects page (one shared full-screen swipeable format instead of each project
+  // having its own vertical StoryScroller), reworked from this boxed "card" look
+  // into a full-screen, more cinematic presentation. Left here, just not rendered.
+  // {
+  //   id: 'garage-gallery',
+  //   layout: 'center',
+  //   header: 'A Few More From the Garage',
+  //   subheader: 'Swipe through — no scroll-jacking required.',
+  //   component: {
+  //     name: 'ImageSwiper',
+  //     props: {
+  //       images: [
+  //         { src: '/assets/gld4rnr_side.webp', alt: 'The gold Toyota 4Runner from the side, overlanding gear visible.', caption: '2003 4Runner — solar, dual battery, and a full kitchen out back.' },
+  //         { src: '/assets/4runner_crop.webp', alt: 'The gold Toyota 4Runner.', caption: 'Still my daily off-road-capable driver.' },
+  //         { src: '/assets/cofxt_side.webp', alt: 'The Subaru Forester XT from the side.', caption: '2004 Forester XT — short-geared, E85, and loud.' },
+  //         { src: '/assets/cofxt_crop.webp', alt: 'The Subaru Forester XT.', caption: 'Fast, fun, and perpetually thirsty for oil.' },
+  //       ],
+  //     },
+  //   },
+  // },
   {
     id: 'autofocus-story-scroller',
     layout: 'fullscreen',

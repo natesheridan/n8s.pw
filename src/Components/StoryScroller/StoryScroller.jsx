@@ -5,7 +5,26 @@ import './StoryScroller.css';
 const componentMap = {
   CarSvg: lazy(() => import('../CarSvg/CarSvg')),
   ServerRack: lazy(() => import('../ServerRack/ServerRack')),
-  Image: ({ src, alt, ...props }) => <img src={src} alt={alt} {...props} />,
+  Image: ({ src, alt, imgStyle, align, ...props }) => {
+    const className = imgStyle || undefined;
+    if (/\.(mp4|webm)$/i.test(src)) {
+      return (
+        <video
+          className={className}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-label={alt}
+          {...props}
+        >
+          <source src={src} type={src.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
+        </video>
+      );
+    }
+    return <img src={src} alt={alt} className={className} loading="lazy" decoding="async" {...props} />;
+  },
   Terminal: lazy(() => import('../Terminal/Terminal')),
   ServerStack: lazy(() => import('../ServerStack/ServerStack')),
 };
@@ -130,7 +149,7 @@ const StoryScroller = ({ story }) => {
     });
 
     return (
-        <div ref={targetRef} className="story-scroller-container">
+        <div ref={targetRef} className="story-scroller-container" style={{ height: `${story.length * 100}vh` }}>
             <div className="story-scroller-sticky">
                 {storyWithFallbacks.map((item, index) => {
                     const start = index / story.length;

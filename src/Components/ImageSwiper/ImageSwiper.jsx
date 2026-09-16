@@ -1,30 +1,75 @@
-import React from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import './ImageSwiper.css';
 
-const images = [
-  'https://images.unsplash.com/photo-1516832682008-32c02de1ca46?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1514316454348-772a0a2caf3c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-];
+// Native scroll-snap carousel — real touch/trackpad swiping on mobile,
+// arrow buttons on desktop. No animation library needed.
+const ImageSwiper = ({ images = [] }) => {
+  const trackRef = useRef(null);
+  const [active, setActive] = useState(0);
 
-const ImageSwiper = () => {
+  const scrollToIndex = useCallback((index) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const clamped = Math.max(0, Math.min(index, images.length - 1));
+    track.children[clamped]?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }, [images.length]);
+
+  const handleScroll = () => {
+    const track = trackRef.current;
+    if (!track) return;
+    const { scrollLeft, clientWidth } = track;
+    const index = Math.round(scrollLeft / clientWidth);
+    setActive(index);
+  };
+
+  if (!images.length) return null;
+
   return (
     <div className="image-swiper">
-      <div className="swiper-track">
+      <div className="swiper-track" ref={trackRef} onScroll={handleScroll}>
         {images.map((image, index) => (
           <div className="swiper-slide" key={index}>
-            <img src={image} alt={`slide-${index}`} />
-          </div>
-        ))}
-        {images.map((image, index) => (
-          <div className="swiper-slide" key={`clone-${index}`}>
-            <img src={image} alt={`slide-${index}`} />
+            <img src={image.src} alt={image.alt || ''} loading="lazy" decoding="async" />
+            {image.caption && <p className="swiper-caption">{image.caption}</p>}
           </div>
         ))}
       </div>
+
+      {images.length > 1 && (
+        <>
+          <button
+            type="button"
+            className="swiper-arrow prev"
+            aria-label="Previous photo"
+            onClick={() => scrollToIndex(active - 1)}
+            disabled={active === 0}
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            className="swiper-arrow next"
+            aria-label="Next photo"
+            onClick={() => scrollToIndex(active + 1)}
+            disabled={active === images.length - 1}
+          >
+            ›
+          </button>
+          <div className="swiper-dots" role="tablist" aria-label="Photo navigation">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                role="tab"
+                aria-selected={index === active}
+                aria-label={`Go to photo ${index + 1}`}
+                className={`swiper-dot ${index === active ? 'active' : ''}`}
+                onClick={() => scrollToIndex(index)}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };
