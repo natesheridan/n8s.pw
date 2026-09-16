@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Nate Sheridan — n8s.pw</title>
+    <script>
+      // GitHub Pages has no server-side router, so a direct hit on a
+      // client-side route (e.g. /about) lands here. Stash the intended
+      // URL and bounce to index.html, which restores it before React
+      // Router mounts (see the inline script in index.html).
+      sessionStorage.redirect = location.href;
+      location.replace('/');
+    </script>
+  </head>
+  <body></body>
+</html>
