@@ -418,3 +418,13 @@
         padding: 1.25rem;
     }
 }
+
+/* Mobile: make the page's links comfortable to tap (44px) without changing the print layout. */
+@media screen and (max-width: 600px) {
+  .resume-back-link,
+  .resume-project-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}

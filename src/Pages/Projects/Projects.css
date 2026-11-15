@@ -398,3 +398,10 @@
         font-size: 4rem;
     }
 }
+
+/* Mobile: 44px tap targets for the sort pills and search box. */
+@media (max-width: 768px) {
+  .sort-pill {
+    min-height: 44px;
+  }
+}

@@ -140,3 +140,8 @@
     }
 }
   
+@media screen and (max-width: 480px) {
+  .button {
+    min-height: 44px;
+  }
+}
