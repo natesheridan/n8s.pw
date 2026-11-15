@@ -25,3 +25,13 @@
 .footer a:hover {
     color: var(--accent-color);
 }
+
+@media (max-width: 875px) {
+    .footer a {
+        display: inline-block;
+        min-height: 44px;
+        line-height: 44px;
+        padding: 0 6px;
+        box-sizing: border-box;
+    }
+}
