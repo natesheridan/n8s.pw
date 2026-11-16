@@ -4,6 +4,7 @@ import * as FontAwesome from 'react-icons/fa';
 import './StorySection.css';
 
 const StoryScroller = lazy(() => import('../StoryScroller/StoryScroller'));
+const SceneScroller = lazy(() => import('../SceneScroller/SceneScroller'));
 
 const componentMap = {
   Terminal: lazy(() => import('../Terminal/Terminal')),
@@ -35,6 +36,14 @@ const StorySection = ({ section }) => {
     return (
       <Suspense fallback={<div>Loading Story...</div>}>
         <StoryScroller story={section.story} />
+      </Suspense>
+    );
+  }
+
+  if (section.layout === 'scene-story') {
+    return (
+      <Suspense fallback={<div>Loading Story...</div>}>
+        <SceneScroller scene={section.scene} beats={section.beats} tag={section.tag} accent={section.accent} link={section.link} />
       </Suspense>
     );
   }
